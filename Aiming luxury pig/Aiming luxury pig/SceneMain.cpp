@@ -33,13 +33,13 @@ void CSceneMain::InitScene()
 	//外部データの読み込み(ステージ情報)
 	unique_ptr<wchar_t>p;//ステージ情報ポインター
 	int size;//ステージ情報の大きさ
-	p = Save::ExternalDataOpen(L"Book1.csv", &size);//外部データの読み込み
+	p = Save::ExternalDataOpen(L"Book1_1.csv", &size);//外部データの読み込み
 
-	int map[20][79];
+	int map[20][150];
 	int count = 1;
 	for (int i = 0; i < 20; i++)
 	{
-		for (int j = 0; j < 79; j++)
+		for (int j = 0; j < 150; j++)
 		{
 			int w = 0;
 			swscanf_s(&p.get()[count], L"%d", &w);
@@ -51,8 +51,12 @@ void CSceneMain::InitScene()
 	//Font作成
 	Font::SetStrTex(L"0123456789分秒");
 
-	//グラフィック読み込み
-	Draw::LoadImageW(L"image.png", 0, TEX_SIZE_512);
+	//グラフィック読み込み : 背景,クリア,ゲームオーバ
+	Draw::LoadImageW(L"background.png", 1, TEX_SIZE_512);
+	//グラフィック読み込み : ブロック
+	Draw::LoadImageW(L"Block.png", 0, TEX_SIZE_512);
+	//グラフィック読み込み : 主人公,オオカミ,鳥
+	Draw::LoadImageW(L"character.png", 2, TEX_SIZE_512);
 
 	//主人公オブジェクト作成
 	CObjPigHero* obj = new CObjPigHero();

@@ -9,7 +9,7 @@ using namespace GameL;
 class CObjBlock :public CObj
 {
 public:
-	CObjBlock(int map[20][79]);
+	CObjBlock(int map[20][150]);
 	~CObjBlock() {};
 	void Init();//イニシャライズ
 	void Action();//アクション
@@ -30,12 +30,12 @@ public:
 	);
 private:
 	void BlockDraw(float x, float y, RECT_F*dst, float c[]);
-	int m_map[20][79];//マップ情報
+	int m_map[20][150];//マップ情報
 
 	float m_scroll;//左右スクロール用
 
-				   //テスト用変数
-				   //	float m_px, m_py;//テスト用交点表示用
+	//テスト用変数
+	//float m_px, m_py;//テスト用交点表示用
 
 	float Dot(float ax, float ay, float bx, float by);//内積
 	float Cross(float ax, float ay, float bx, float by);//外積

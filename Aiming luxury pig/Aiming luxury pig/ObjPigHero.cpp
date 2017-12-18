@@ -32,7 +32,7 @@ void CObjPigHero::Init()
 
 	m_block_type = 0;//踏んでいるblockの種類を確認用
 
-					 //当たり判定用のHitBoxを作成
+	//当たり判定用のHitBoxを作成
 	Hits::SetHitBox(this, m_px, m_py, 64, 64, ELEMENT_PLAYER, OBJ_PIGHERO, 1);
 }
 
@@ -246,11 +246,11 @@ void CObjPigHero::Draw()
 	RECT_F src;//描画元切り取り位置
 	RECT_F dst;//描画先表示位置
 
-			   //切り取り位置の設定
+	//切り取り位置の設定
 	src.m_top = 0.0f;
-	src.m_left = 0.0f + AniData[m_ani_frame] * 64;
-	src.m_right = 64.0 + AniData[m_ani_frame] * 64;
-	src.m_bottom = 64.0f;
+	src.m_left = 0.0f + AniData[m_ani_frame] * 150;
+	src.m_right = 155.0 + AniData[m_ani_frame] * 150;
+	src.m_bottom = 140.0f;
 
 	//表示位置の設定
 	dst.m_top = 0.0f + m_py;
@@ -259,9 +259,9 @@ void CObjPigHero::Draw()
 	dst.m_bottom = 64.0f + m_py;
 
 	//描画
-	Draw::Draw(0, &src, &dst, c, 0.0f);
+	Draw::Draw(2, &src, &dst, c, 0.0f);
 
-	//交点
+	/*//交点
 	float cc[4] = { 1.0f,0.0f,0.0f,1.0f };
 	src.m_top = 0.0f;
 	src.m_left = 320.0f;
@@ -271,5 +271,5 @@ void CObjPigHero::Draw()
 	dst.m_left = px;
 	dst.m_right = dst.m_left + 10.0f;
 	dst.m_bottom = dst.m_top + 10.0f;
-	Draw::Draw(0, &src, &dst, cc, 0.0f);
+	Draw::Draw(0, &src, &dst, cc, 0.0f);*/
 }

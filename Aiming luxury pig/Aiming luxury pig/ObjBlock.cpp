@@ -9,10 +9,10 @@
 //使用するネームスペース
 using namespace GameL;
 
-CObjBlock::CObjBlock(int map[20][79])
+CObjBlock::CObjBlock(int map[20][150])
 {
 	//マップデータをコピー
-	memcpy(m_map, map, sizeof(int)*(20 * 79));
+	memcpy(m_map, map, sizeof(int)*(20 * 150));
 }
 //イニシャライズ
 void CObjBlock::Init()
@@ -85,29 +85,30 @@ void CObjBlock::Draw()
 
 	RECT_F src;//描画元切り取り位置
 	RECT_F dst;//描画先表示位置
-			   //背景表示
-	src.m_top = 256.0f;
-	src.m_left = 0.0f;
-	src.m_right = 512.0f;
-	src.m_bottom = 512.0f;
+
+	//背景表示
+	src.m_top = 2.0f;
+	src.m_left = 2.0f;
+	src.m_right = 402.0f;
+	src.m_bottom = 151.0f;
 	dst.m_top = 0.0f;
 	dst.m_left = 0.0f;
 	dst.m_right = 800.0;
 	dst.m_bottom = 600.0;
-	Draw::Draw(0, &src, &dst, c, 0.0f);
+	Draw::Draw(1, &src, &dst, c, 0.0f);
 
 	//マップチップによるblock設置
 	for (int i = 0; i < 20; i++)
 	{
-		for (int j = 0; j < 79; j++)
+		for (int j = 0; j < 150; j++)
 		{
 			if (m_map[i][j] > 0)
 			{
 				//表示位置の設定
-				dst.m_top = i*64.0f;
-				dst.m_left = j*64.0f + m_scroll;
-				dst.m_right = dst.m_left + 64.0;
-				dst.m_bottom = dst.m_top + 64.0;
+				dst.m_top    = i * 30.0f;
+				dst.m_left   = j * 30.0f  + m_scroll;
+				dst.m_right  = dst.m_left + 30.0;
+				dst.m_bottom = dst.m_top  + 30.0;
 				if (m_map[i][j] == 2)
 				{
 					//スタートブロック
@@ -154,24 +155,25 @@ void CObjBlock::Draw()
 void CObjBlock::BlockDraw(float x, float y, RECT_F*dst, float c[])
 {
 	RECT_F src;
-	src.m_top = y;
-	src.m_left = x;
-	src.m_right = src.m_left + 64.0f;
-	src.m_bottom = src.m_top + 64.0f;
+	//ブロック : 切り取り位置
+	src.m_top    = 158.0f;
+	src.m_left   = 165.0f;
+	src.m_right  = src.m_left + 130.0f;
+	src.m_bottom = src.m_top  + 145.0f;
 	//描画
 	Draw::Draw(0, &src, dst, c, 0.0f);
 }
 //BlockHit関数
-//引数1 float*x　:判定を行うobjectのX位置
-//引数2 float*y　:判定を行うobjectのY位置
+//引数1 float*x　      :判定を行うobjectのX位置
+//引数2 float*y　      :判定を行うobjectのY位置
 //引数3 bool  scroll_on:判定を行うobjectはスクロールの影響を与えるかどうか(true=与える　false=与えない)
-//引数4 bool* up :上下左右判定の上部分に当たっているかどうかを返す
-//引数5 bool*  down:上下左右判定の下部分に当たっているかどうかを返す
-//引数6 bool* left:上下左右判定の左部分に当たっているかどうかを返す
-//引数7 bool* right:上下左右判定の右部分に当たっているかどうかを返す
-//引数8 float* vx:左右判定時の反発による移動方向・力の値を変えて返す
-//引数9 float* vy:上下判定時による自由落下運動の移動方向・力の値を変えて返す
-//引数10 int*  bt:下部分判定、特殊なブロックのタイプを返す
+//引数4 bool* up       :上下左右判定の上部分に当たっているかどうかを返す
+//引数5 bool*  down    :上下左右判定の下部分に当たっているかどうかを返す
+//引数6 bool* left     :上下左右判定の左部分に当たっているかどうかを返す
+//引数7 bool* right    :上下左右判定の右部分に当たっているかどうかを返す
+//引数8 float* vx      :左右判定時の反発による移動方向・力の値を変えて返す
+//引数9 float* vy      :上下判定時による自由落下運動の移動方向・力の値を変えて返す
+//引数10 int*  bt      :下部分判定、特殊なブロックのタイプを返す
 //判定を行うobjectとブロック64×64限定で、当たり判定と上下左右判定を行う
 //その結果は引数4～10に返す
 void CObjBlock::BlockHit(
@@ -192,16 +194,17 @@ void CObjBlock::BlockHit(
 	//mmapの全要素にアクセス
 	for (int i = 0; i < 20; i++)
 	{
-		for (int j = 0; j < 79; j++)
+		for (int j = 0; j < 150; j++)
 		{
 			if (m_map[i][j] > 0 && m_map[i][j] != 4)
 			{
 				//要素番号を座標に変更
-				float bx = j*64.0f;
-				float by = i*64.0f;
+				float bx = j * 32.0f;
+				float by = i * 32.0f;
 
 				//スクロールの影響
 				float scroll = scroll_on ? m_scroll : 0;
+
 				//オブジェクトとブロックの当判定
 				if ((*x + (-scroll) + 64.0f>bx) && (*x + (-scroll)<bx + 64.0f) && (*y + 64.0f>by) && (*y<by + 64.0f))
 				{
@@ -223,7 +226,6 @@ void CObjBlock::BlockHit(
 					//lenがある一定の長さのより短い場合判定に入る
 					if (len < 88.0f)
 					{
-
 						//角度で上下左右を判定
 						if ((r < 45 && r>0) || r > 315)
 						{
@@ -371,18 +373,18 @@ bool CObjBlock::HeroBlckCrossPoint(
 {
 	bool pb = false;//交点確認用
 	float len = 99999.0f;//交点との距離
-						 //ブロックの辺ベクトル
+	//ブロックの辺ベクトル
 	float edge[4][4] =
 	{
-		{ 0,0,64,0 },//→
-		{ 64,0,64,64 },//↓
-		{ 64,64,0,64 },//←
-		{ 0,64,0,0 },//↑
+		{  0, 0,64, 0 },//→
+		{ 64, 0,64,64 },//↓
+		{ 64,64, 0,64 },//←
+		{  0,64, 0, 0 },//↑
 	};
 	//m_mapの全要素にアクセス
 	for (int i = 0; i < 20; i++)
 	{
-		for (int j = 0; j < 79; j++)
+		for (int j = 0; j < 150; j++)
 		{
 			if (m_map[i][j] > 0 && m_map[i][j] != 4)
 			{
