@@ -62,20 +62,6 @@ void CObjBlock::Action()
 			m_map[i][ex] = 0;
 		}
 	}
-
-	//テスト
-	/*	float px, py;
-	float len;
-	bool b;
-	b = HeroBlckCrossPoint(
-	hx + (-m_scroll), hy,
-	hero->GetVX() * 300, hero->GetVY() * 300,
-	&px, &py, &len
-	);
-	m_px = px + m_scroll;//テスト用のメンバー変数に渡す
-	m_py = py;
-	int a = 0;
-	a++;*/
 }
 //ドロー
 void CObjBlock::Draw()
@@ -87,13 +73,13 @@ void CObjBlock::Draw()
 	RECT_F dst;//描画先表示位置
 
 	//背景表示
-	src.m_top = 2.0f;
-	src.m_left = 2.0f;
-	src.m_right = 402.0f;
+	src.m_top    = 2.0f;
+	src.m_left   = 2.0f;
+	src.m_right  = 402.0f;
 	src.m_bottom = 151.0f;
-	dst.m_top = 0.0f;
-	dst.m_left = 0.0f;
-	dst.m_right = 800.0;
+	dst.m_top    = 0.0f;
+	dst.m_left   = 0.0f;
+	dst.m_right  = 800.0;
 	dst.m_bottom = 600.0;
 	Draw::Draw(1, &src, &dst, c, 0.0f);
 
@@ -105,10 +91,10 @@ void CObjBlock::Draw()
 			if (m_map[i][j] > 0)
 			{
 				//表示位置の設定
-				dst.m_top    = i * 32.0f;
-				dst.m_left   = j * 32.0f  + m_scroll;
-				dst.m_right  = dst.m_left + 32.0;
-				dst.m_bottom = dst.m_top  + 32.0;
+				dst.m_top    = i * 30.0f;
+				dst.m_left   = j * 30.0f  + m_scroll;
+				dst.m_right  = dst.m_left + 30.0;
+				dst.m_bottom = dst.m_top  + 30.0;
 				if (m_map[i][j] == 2)
 				{
 					//スタートブロック
@@ -132,17 +118,6 @@ void CObjBlock::Draw()
 			}
 		}
 	}
-	//テスト交点表示
-	/*float cc[4] = { 1.0f,0.0f,0.0f,1.0f };
-	src.m_top = 0.0f;
-	src.m_left = 320.0f;
-	src.m_right = 320.0f + 64.0f;
-	src.m_bottom = 64.0f;
-	dst.m_top = m_py;
-	dst.m_left = m_px;
-	dst.m_right = dst.m_left + 20.0f;
-	dst.m_bottom = dst.m_top + 20.0f;
-	Draw::Draw(0, &src, &dst, cc, 0.0f);*/
 }
 
 //BlockDrawMethod関数
@@ -168,7 +143,7 @@ void CObjBlock::BlockDraw(float x, float y, RECT_F*dst, float c[])
 //引数2 float*y　      :判定を行うobjectのY位置
 //引数3 bool  scroll_on:判定を行うobjectはスクロールの影響を与えるかどうか(true=与える　false=与えない)
 //引数4 bool* up       :上下左右判定の上部分に当たっているかどうかを返す
-//引数5 bool*  down    :上下左右判定の下部分に当たっているかどうかを返す
+//引数5 bool* down     :上下左右判定の下部分に当たっているかどうかを返す
 //引数6 bool* left     :上下左右判定の左部分に当たっているかどうかを返す
 //引数7 bool* right    :上下左右判定の右部分に当たっているかどうかを返す
 //引数8 float* vx      :左右判定時の反発による移動方向・力の値を変えて返す
@@ -183,9 +158,9 @@ void CObjBlock::BlockHit(
 )
 {
 	//主人公の衝突状態確認用フラグの初期化
-	*up = false;
-	*down = false;
-	*left = false;
+	*up    = false;
+	*down  = false;
+	*left  = false;
 	*right = false;
 
 	//踏んでいるblockの種類の初期化
@@ -199,14 +174,14 @@ void CObjBlock::BlockHit(
 			if (m_map[i][j] > 0 && m_map[i][j] != 4)
 			{
 				//要素番号を座標に変更
-				float bx = j * 32.0f;
-				float by = i * 32.0f;
+				float bx = j * 30.0f;
+				float by = i * 30.0f;
 
 				//スクロールの影響
 				float scroll = scroll_on ? m_scroll : 0;
 
 				//オブジェクトとブロックの当判定
-				if ((*x + (-scroll) + 32.0f>bx) && (*x + (-scroll)<bx + 32.0f) && (*y + 32.0f>by) && (*y<by + 32.0f))
+				if ((*x + (-scroll) + 30.0f>bx) && (*x + (-scroll)<bx + 30.0f) && (*y + 30.0f>by) && (*y<by + 30.0f))
 				{
 					//上下左右判定
 
@@ -231,14 +206,14 @@ void CObjBlock::BlockHit(
 						{
 							//右
 							*right = true;//主人公の左の部分が衝突している
-							*x = bx + 32.0f + (scroll);//ブロック位置+主人公の幅
+							*x = bx + 30.0f + (scroll);//ブロック位置+主人公の幅
 							*vx = -(*vx)*0.1f;//-VX*反発係数
 						}
 						if (r > 45 && r < 135)
 						{
 							//上
 							*down = true;//主人の下の部分が衝突している
-							*y = by - 32.0f;//ブロック位置-主人公の幅
+							*y = by - 30.0f;//ブロック位置-主人公の幅
 											//種類を渡すのスタートとゴールのみ変更する
 							if (m_map[i][j] >= 2)
 								*bt = m_map[i][j];//ブロックの要素(type)を主人公に渡す
@@ -248,14 +223,14 @@ void CObjBlock::BlockHit(
 						{
 							//左
 							*left = true;//主人公の右の部分が衝突している
-							*x = bx - 32.0f + (scroll);//ブロック位置-主人公の幅
+							*x = bx - 30.0f + (scroll);//ブロック位置-主人公の幅
 							*vx = -(*vx)*0.1f;//-VX*反発係数
 						}
 						if (r > 225 && r < 315)
 						{
 							//下
 							*up = true;//主人公の上の部分が衝突している
-							*y = by +32.0f;//ブロックの位置+主人公の幅
+							*y = by + 30.0f;//ブロックの位置+主人公の幅
 							if (*vy < 0)
 							{
 								*vy = 0.0f;
@@ -335,7 +310,7 @@ bool CObjBlock::LineCrossPoint(
 	//符号が同じ方向になっているかどうかをチェック
 	if (SGN(t1) == SGN(t2))
 		return false;//交点無し
-					 //射影を絶対値化
+	//射影を絶対値化
 	t1 = abs(t1);  t2 = abs(t2);
 	//交点を求める
 	float px = bx*(t1 / (t1 + t2)) + b1x;

@@ -68,16 +68,7 @@ void CObjPigHero::Action()
 		m_speed_power = 0.5f;
 		m_ani_max_time = 4;
 	}
-	//Aキー入力で高速移動
-	/*if (Input::GetVKey('A') == true)
-	{
-	//高速移動
-	if (m_vx < 50)
-	{
-	m_speed_power = 100.0f;
-	m_ani_max_time = 2;
-	}
-	}*/
+	
 	//キーの入力方向
 	if (Input::GetVKey(VK_RIGHT) == true)
 	{
@@ -103,7 +94,7 @@ void CObjPigHero::Action()
 		m_ani_time = 0;
 	}
 
-	if (m_ani_frame == 4)
+	if (m_ani_frame == 3)
 	{
 		m_ani_frame = 0;
 	}
@@ -112,57 +103,6 @@ void CObjPigHero::Action()
 	//自由落下運動
 	m_vy += 9.8 / (16.0f);
 
-	//高速移動によるBlock判定
-	/*bool b;
-	float pxx, pyy, r;
-	CObjBlock*pbb = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
-	b = pbb->HeroBlckCrossPoint(m_px - pbb->GetScroll() + 32, m_py + 32, m_vx * 100, m_vy * 100, &pxx, &pyy, &r);
-
-	if (b == true)
-	{
-	px = pxx + pbb->GetScroll();
-	py = pyy;
-	}
-	else
-	{
-	px = py = 0;
-	}*/
-	/*if(pbb->GetStatus()>0)
-	pbb->SetScroll(0);*/
-
-	//移動方向にレイを飛ばす
-	/*	float vx;
-	if (m_vx > 0)
-	vx = 500;
-	else
-	vx = -500;
-	//レイ判定
-	b = pbb->HeroBlckCrossPoint(m_px - pbb->GetScroll() + 32, m_py + 32,vx ,0.0f, &pxx, &pyy, &r);
-
-	if (b == true)
-	{  //交点取得
-	px = pxx + pbb->GetScroll();
-	py = pyy;
-
-	float aa = (m_px)-px;//A(交点→主人公に位置)ベクトル
-	float bb = (m_px + m_vx) - px;//B(交点→主人公の移動先位置ベクトル
-	//主人公の幅分オフセット
-	if (vx > 0)
-	px += -64;
-	else
-	px += +2;
-	//AとBが逆を向いている(主人公が移動先が壁を越えてる)
-	if (aa*bb < 0)
-	{
-	//移動ベクトルを(交点→主人公の位置)ベクトルにする
-	m_vx = px - m_px;
-	}
-	}
-	else
-	{
-	px = 0.0f;
-	py = 0.0f;
-	}*/
 	//ブロックとの当たり判定実行
 	CObjBlock*pb = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 	pb->BlockHit(&m_px, &m_py, true,
@@ -260,16 +200,4 @@ void CObjPigHero::Draw()
 
 	//描画
 	Draw::Draw(2, &src, &dst, c, 0.0f);
-
-	/*//交点
-	float cc[4] = { 1.0f,0.0f,0.0f,1.0f };
-	src.m_top = 0.0f;
-	src.m_left = 320.0f;
-	src.m_right = 320.0f + 64.0f;
-	src.m_bottom = 64.0f;
-	dst.m_top = py;
-	dst.m_left = px;
-	dst.m_right = dst.m_left + 10.0f;
-	dst.m_bottom = dst.m_top + 10.0f;
-	Draw::Draw(0, &src, &dst, cc, 0.0f);*/
 }
