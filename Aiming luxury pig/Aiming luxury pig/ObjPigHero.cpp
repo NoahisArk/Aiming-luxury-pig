@@ -33,7 +33,7 @@ void CObjPigHero::Init()
 	m_block_type = 0;//踏んでいるblockの種類を確認用
 
 	//当たり判定用のHitBoxを作成
-	Hits::SetHitBox(this, m_px, m_py, 64, 64, ELEMENT_PLAYER, OBJ_PIGHERO, 1);
+	Hits::SetHitBox(this, m_px, m_py, 32, 32, ELEMENT_PLAYER, OBJ_PIGHERO, 1);
 }
 
 //アクション
@@ -254,9 +254,9 @@ void CObjPigHero::Draw()
 
 	//表示位置の設定
 	dst.m_top = 0.0f + m_py;
-	dst.m_left = (64.0f*m_posture) + m_px;
-	dst.m_right = (64 - 64.0f*m_posture) + m_px;
-	dst.m_bottom = 64.0f + m_py;
+	dst.m_left = (32.0f*m_posture) + m_px;
+	dst.m_right = (32 - 32.0f*m_posture) + m_px;
+	dst.m_bottom = 32.0f + m_py;
 
 	//描画
 	Draw::Draw(2, &src, &dst, c, 0.0f);

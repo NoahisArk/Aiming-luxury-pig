@@ -105,10 +105,10 @@ void CObjBlock::Draw()
 			if (m_map[i][j] > 0)
 			{
 				//表示位置の設定
-				dst.m_top    = i * 30.0f;
-				dst.m_left   = j * 30.0f  + m_scroll;
-				dst.m_right  = dst.m_left + 30.0;
-				dst.m_bottom = dst.m_top  + 30.0;
+				dst.m_top    = i * 32.0f;
+				dst.m_left   = j * 32.0f  + m_scroll;
+				dst.m_right  = dst.m_left + 32.0;
+				dst.m_bottom = dst.m_top  + 32.0;
 				if (m_map[i][j] == 2)
 				{
 					//スタートブロック
@@ -206,7 +206,7 @@ void CObjBlock::BlockHit(
 				float scroll = scroll_on ? m_scroll : 0;
 
 				//オブジェクトとブロックの当判定
-				if ((*x + (-scroll) + 64.0f>bx) && (*x + (-scroll)<bx + 64.0f) && (*y + 64.0f>by) && (*y<by + 64.0f))
+				if ((*x + (-scroll) + 32.0f>bx) && (*x + (-scroll)<bx + 32.0f) && (*y + 32.0f>by) && (*y<by + 32.0f))
 				{
 					//上下左右判定
 
@@ -231,14 +231,14 @@ void CObjBlock::BlockHit(
 						{
 							//右
 							*right = true;//主人公の左の部分が衝突している
-							*x = bx + 64.0f + (scroll);//ブロック位置+主人公の幅
+							*x = bx + 32.0f + (scroll);//ブロック位置+主人公の幅
 							*vx = -(*vx)*0.1f;//-VX*反発係数
 						}
 						if (r > 45 && r < 135)
 						{
 							//上
 							*down = true;//主人の下の部分が衝突している
-							*y = by - 64.0f;//ブロック位置-主人公の幅
+							*y = by - 32.0f;//ブロック位置-主人公の幅
 											//種類を渡すのスタートとゴールのみ変更する
 							if (m_map[i][j] >= 2)
 								*bt = m_map[i][j];//ブロックの要素(type)を主人公に渡す
@@ -248,14 +248,14 @@ void CObjBlock::BlockHit(
 						{
 							//左
 							*left = true;//主人公の右の部分が衝突している
-							*x = bx - 64.0f + (scroll);//ブロック位置-主人公の幅
+							*x = bx - 32.0f + (scroll);//ブロック位置-主人公の幅
 							*vx = -(*vx)*0.1f;//-VX*反発係数
 						}
 						if (r > 225 && r < 315)
 						{
 							//下
 							*up = true;//主人公の上の部分が衝突している
-							*y = by + 64.0f;//ブロックの位置+主人公の幅
+							*y = by +32.0f;//ブロックの位置+主人公の幅
 							if (*vy < 0)
 							{
 								*vy = 0.0f;
@@ -376,10 +376,10 @@ bool CObjBlock::HeroBlckCrossPoint(
 	//ブロックの辺ベクトル
 	float edge[4][4] =
 	{
-		{  0, 0,64, 0 },//→
-		{ 64, 0,64,64 },//↓
-		{ 64,64, 0,64 },//←
-		{  0,64, 0, 0 },//↑
+		{  0, 0,32, 0 },//→
+		{ 32, 0,32,32 },//↓
+		{ 32,32, 0,32 },//←
+		{  0,32, 0, 0 },//↑
 	};
 	//m_mapの全要素にアクセス
 	for (int i = 0; i < 20; i++)
