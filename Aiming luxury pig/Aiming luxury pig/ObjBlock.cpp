@@ -52,10 +52,10 @@ void CObjBlock::Action()
 	for (int i = 0; i < 20; i++)
 	{
 		//—ñ‚Ì’†‚©‚ç4‚ð’T‚·
-		if (m_map[i][ex] == 4)
+		if (m_map[i][ex] == 8)
 		{
 			//4‚ª‚ ‚ê‚ÎA“G‚ðoŒ»
-			CObjEnemy* obje = new CObjEnemy(ex*64.0f, i*64.0f);
+			CObjEnemy* obje = new CObjEnemy(ex*30.0f, i*30.0f);
 			Objs::InsertObj(obje, OBJ_ENEMY, 10);
 
 			//“GoŒ»êŠ‚Ì’l‚ð0‚É‚·‚é

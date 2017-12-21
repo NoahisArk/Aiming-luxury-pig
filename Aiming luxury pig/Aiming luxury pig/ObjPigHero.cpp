@@ -194,9 +194,9 @@ void CObjPigHero::Draw()
 
 	//ï\é¶à íuÇÃê›íË
 	dst.m_top = 0.0f + m_py;
-	dst.m_left = (32.0f*m_posture) + m_px;
-	dst.m_right = (32 - 32.0f*m_posture) + m_px;
-	dst.m_bottom = 32.0f + m_py;
+	dst.m_left = (30.0f*m_posture) + m_px;
+	dst.m_right = (30 - 30.0f*m_posture) + m_px;
+	dst.m_bottom = 30.0f + m_py;
 
 	//ï`âÊ
 	Draw::Draw(2, &src, &dst, c, 0.0f);
