@@ -98,12 +98,26 @@ void CObjBlock::Draw()
 				if (m_map[i][j] == 2)
 				{
 					//スタートブロック
-					BlockDraw(320.0f + 64.0f, 0.0f, &dst, c);
+					//BlockDraw(320.0f + 30.0f, 30.0f, &dst, c);
+					//スタートブロック : 切り取り位置
+					src.m_top = 2.0f;
+					src.m_left = 164.0f;
+					src.m_right = 324.0f;
+					src.m_bottom = 149.0f;
+					//描画
+					Draw::Draw(0, &src, &dst, c, 0.0f);
 				}
 				else if (m_map[i][j] == 3)
 				{
 					//ゴールブロック
-					BlockDraw(320.0f + 64.0f, 64.0f, &dst, c);
+					//BlockDraw(320.0f + 30.0f, 30.0f, &dst, c);
+					//ゴールブロック : 切り取り位置
+					src.m_top = 2.0f;
+					src.m_left = 3.0f;
+					src.m_right = 160.0f;
+					src.m_bottom = 149.0f;
+					//描画
+					Draw::Draw(0, &src, &dst, c, 0.0f);
 				}
 				else if (m_map[i][j] == 4)
 				{
@@ -125,7 +139,7 @@ void CObjBlock::Draw()
 //引数2 float  y ;リソース切り取り位置Y
 //引数3 RECT_F*dst;描画位置
 //引数4 float c[];カラー情報
-//ブロックを64×64限定描画用。リソース切り取り位置のみx.yで
+//ブロックを限定描画用。リソース切り取り位置のみx.yで
 //設定できる
 void CObjBlock::BlockDraw(float x, float y, RECT_F*dst, float c[])
 {
@@ -149,7 +163,7 @@ void CObjBlock::BlockDraw(float x, float y, RECT_F*dst, float c[])
 //引数8 float* vx      :左右判定時の反発による移動方向・力の値を変えて返す
 //引数9 float* vy      :上下判定時による自由落下運動の移動方向・力の値を変えて返す
 //引数10 int*  bt      :下部分判定、特殊なブロックのタイプを返す
-//判定を行うobjectとブロック64×64限定で、当たり判定と上下左右判定を行う
+//判定を行うobjectとブロックを限定で、当たり判定と上下左右判定を行う
 //その結果は引数4～10に返す
 void CObjBlock::BlockHit(
 	float *x, float*y, bool scroll_on,

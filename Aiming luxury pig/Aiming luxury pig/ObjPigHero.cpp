@@ -33,7 +33,7 @@ void CObjPigHero::Init()
 	m_block_type = 0;//踏んでいるblockの種類を確認用
 
 	//当たり判定用のHitBoxを作成
-	Hits::SetHitBox(this, m_px, m_py, 32, 32, ELEMENT_PLAYER, OBJ_PIGHERO, 1);
+	Hits::SetHitBox(this, m_px, m_py, 30, 30, ELEMENT_PLAYER, OBJ_PIGHERO, 1);
 }
 
 //アクション
