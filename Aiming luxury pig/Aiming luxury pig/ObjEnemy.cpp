@@ -18,7 +18,6 @@ CObjEnemy::CObjEnemy(float x, float y)
 //イニシャライズ
 void CObjEnemy::Init()
 {
-
 	m_vx = 0.0f;//移動ベクトル
 	m_vy = 0.0f;
 	m_posture = 1.0f;//右向き0.0f左向き1.0f
@@ -31,14 +30,14 @@ void CObjEnemy::Init()
 
 	m_move = true;  //true=右　false=左
 
-					//blockとの衝突状態確認用
+	//blockとの衝突状態確認用
 	m_hit_up = false;
 	m_hit_down = false;
 	m_hit_left = false;
 	m_hit_right = false;
+
 	//当たり判定用のHitBoxを作成
 	Hits::SetHitBox(this, m_px, m_py, 30, 30, ELEMENT_ENEMY, OBJ_ENEMY, 1);
-
 }
 
 //アクション
@@ -62,7 +61,6 @@ void CObjEnemy::Action()
 	{
 		m_move = false;
 	}
-
 	//方向
 	if (m_move == false)
 	{
@@ -87,10 +85,13 @@ void CObjEnemy::Action()
 	}
 	//摩擦
 	m_vx += -(m_vx*0.098);
+
 	//自由落下運動
 	m_vy += 9.8 / (16.0f);
+
 	//ブロックタイプ検知用の変数がないためのダミー
 	int d;
+
 	//ブロックとの当たり判定実行
 	CObjBlock*pb = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 	pb->BlockHit(&m_px, &m_py, false,
@@ -107,7 +108,6 @@ void CObjEnemy::Action()
 	//HitBoxの位置の変更
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_px + block->GetScroll(), m_py);
-
 }
 
 //ドロー

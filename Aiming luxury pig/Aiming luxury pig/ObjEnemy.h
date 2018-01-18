@@ -38,6 +38,4 @@ private:
 
 	//ˆÚ“®‚ÌŒü‚«§Œä—p
 	bool m_move;
-
-
 };

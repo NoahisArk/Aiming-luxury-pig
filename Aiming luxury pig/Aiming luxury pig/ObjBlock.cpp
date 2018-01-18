@@ -44,19 +44,19 @@ void CObjBlock::Action()
 	}
 	//敵出現ライン
 	//主人公の位置+500を敵出現ラインにする
-	float line = hx + (-m_scroll) + 500;
+	float line = hx + (-m_scroll) + 250;
 
 	//敵出現ラインを要素番号化
-	int ex = ((int)line) / 64;
+	int ex = ((int)line) / 30;
 
 	//敵出現ラインの列を検索
 	for (int i = 0; i < 20; i++)
 	{
 		//列の中から4を探す
-		if (m_map[i][ex] == 8)
+		if (m_map[i][ex] == 4)
 		{
-			//4があれば、敵を出現
-			CObjEnemy* obje = new CObjEnemy(ex*30.0f, i*30.0f);
+			//8があれば、敵を出現
+			CObjEnemy* obje = new CObjEnemy(ex * 30.0f, i * 30.0f);
 			Objs::InsertObj(obje, OBJ_ENEMY, 10);
 
 			//敵出現場所の値を0にする
@@ -98,8 +98,6 @@ void CObjBlock::Draw()
 				dst.m_bottom = dst.m_top  + 30.0;
 				if (m_map[i][j] == 2)
 				{
-					//スタートブロック
-					//BlockDraw(320.0f + 30.0f, 30.0f, &dst, c);
 					//スタートブロック : 切り取り位置
 					src.m_top = 2.0f;
 					src.m_left = 164.0f;
@@ -110,8 +108,6 @@ void CObjBlock::Draw()
 				}
 				else if (m_map[i][j] == 3)
 				{
-					//ゴールブロック
-					//BlockDraw(320.0f + 30.0f, 30.0f, &dst, c);
 					//ゴールブロック : 切り取り位置
 					src.m_top = 2.0f;
 					src.m_left = 3.0f;
@@ -125,7 +121,12 @@ void CObjBlock::Draw()
 				}
 				else if (m_map[i][j] == 4)
 				{
-					;//敵配置用の番号のため何もしない
+					src.m_top = 0.0f;
+					src.m_left = 0.0f;
+					src.m_right = 0.0f;
+					src.m_bottom = src.m_top + 0.0f;
+					//描画
+					Draw::Draw(2, &src, &dst, c, 0.0f);
 				}
 				else
 				{
@@ -293,11 +294,11 @@ float CObjBlock::Cross(float ax, float ay, float bx, float by)
 #define SGN(x) 1-(x<=0)-(x<0)
 
 //線と線と交差判定関数
-//引数　float1,2 a1x,a1y      :軸ベクトルAの始点
-//引数　float3,4 a2x,a2y　　　:軸ベクトル終点
-//引数　float5,6 b1x,b1y　　　:ベクトルBの始点
-//引数　float7,8 b2x,b2y　　　:ベクトルBの終点
-//引数　float9,10 out_px,out_py　:交差するベクトルの交点位置
+//引数　float1,2 a1x,a1y	      :軸ベクトルAの始点
+//引数　float3,4 a2x,a2y　　	　:軸ベクトル終点
+//引数　float5,6 b1x,b1y		  :ベクトルBの始点
+//引数　float7,8 b2x,b2y　　　    :ベクトルBの終点
+//引数　float9,10 out_px,out_py　 :交差するベクトルの交点位置
 //戻り値　bool  :true=交点有り　　false=交点無し
 //内容:引数のA・Bベクトルの交点を見つけ、out_pxとout_pyに返す
 bool CObjBlock::LineCrossPoint(
@@ -346,17 +347,17 @@ bool CObjBlock::LineCrossPoint(
 	if (SGN(w1) == SGN(w2))
 		return false;//交点が外
 
-					 //交点を返す
+	//交点を返す
 	*out_px = px; *out_py = py;
 
 	return true;
 }
 
 //主人公と壁の交差判定関数
-//引数1,2float x,y            ;主人公の位置
-//引数3,4float vx,vy　　　　　:主人公の移動ベクトル
-//引数5,6 float*out_px,out_y　:Blockとの交点
-//引数7　float*out　　　　　　:位置から交点までの距離
+//引数1,2 float x,y            ;主人公の位置
+//引数3,4 float vx,vy　　　　　:主人公の移動ベクトル
+//引数5,6 float*out_px,out_y　 :Blockとの交点
+//引数7　 float*out　　　　　　:位置から交点までの距離
 //主人公の位置+移動ベクトルと各ブロックの辺で交点判定を行い
 //最も近い交点の位置と距離を返す
 bool CObjBlock::HeroBlckCrossPoint(
@@ -369,10 +370,10 @@ bool CObjBlock::HeroBlckCrossPoint(
 	//ブロックの辺ベクトル
 	float edge[4][4] =
 	{
-		{  0, 0,32, 0 },//→
-		{ 32, 0,32,32 },//↓
-		{ 32,32, 0,32 },//←
-		{  0,32, 0, 0 },//↑
+		{  0, 0,30, 0 },//→
+		{ 30, 0,30,30 },//↓
+		{ 30,30, 0,30 },//←
+		{  0,30, 0, 0 },//↑
 	};
 	//m_mapの全要素にアクセス
 	for (int i = 0; i < 20; i++)

@@ -24,7 +24,7 @@ void CObjPigHero::Init()
 	m_speed_power = 0.5f;//通常速度
 	m_ani_max_time = 4;//アニメーション間隔幅
 
-					   //blockとの衝突状態確認用
+	//blockとの衝突状態確認用
 	m_hit_up = false;
 	m_hit_down = false;
 	m_hit_left = false;
@@ -104,6 +104,7 @@ void CObjPigHero::Action()
 	}
 	//摩擦
 	m_vx += -(m_vx*0.098);
+
 	//自由落下運動
 	m_vy += 9.8 / (16.0f);
 
@@ -115,6 +116,7 @@ void CObjPigHero::Action()
 	);
 	//自身のHitBoxを持ってくる
 	CHitBox*hit = Hits::GetHitBox(this);
+
 	//敵と当たっているか確認
 	if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 	{
@@ -123,16 +125,15 @@ void CObjPigHero::Action()
 		hit_data = hit->SearchObjNameHit(OBJ_ENEMY);//hit_dataに主人公と当たっている他全てのHitBoxとの情報を入れる
 		for (int i = 0; i < hit->GetCount(); i++)
 		{
-
 			//敵の左右に当たったら
 			float r = hit_data[i]->r;
 			if ((r < 45 && r >= 0) || r > 315)
 			{
-				m_vx = -5.0f;//左に移動させる
+				m_vx = -15.0f;//左に移動させる
 			}
 			if (r > 135 && r < 225)
 			{
-				m_vx = +5.0f;//右に移動させる
+				m_vx = +15.0f;//右に移動させる
 			}
 			if (r = 225 && r < 315)
 			{
@@ -140,6 +141,7 @@ void CObjPigHero::Action()
 				m_px += ((CObjEnemy*)hit_data[i]->o)->GetVx();
 
 				CObjBlock*b = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
+
 				//後方スクロールライン
 				if (m_px < 80)
 				{
