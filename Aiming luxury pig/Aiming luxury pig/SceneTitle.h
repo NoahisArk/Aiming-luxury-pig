@@ -12,8 +12,6 @@ public:
 	~CSceneTitle();
 	void InitScene();
 	void Scene();
-
 private:
-
 
 };

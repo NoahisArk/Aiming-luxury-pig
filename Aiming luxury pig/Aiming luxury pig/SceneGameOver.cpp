@@ -18,12 +18,14 @@ CSceneGameOver::CSceneGameOver()
 {
 
 }
+
 //デストラクタ
 CSceneGameOver::~CSceneGameOver()
 {
 
 
 }
+
 //初期かメソッド
 void CSceneGameOver::InitScene()
 {

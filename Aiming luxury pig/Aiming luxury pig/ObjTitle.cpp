@@ -12,9 +12,7 @@ using namespace GameL;
 //イニシャライズ
 void CObjTitle::Init()
 {
-
 	m_key_flag = false;
-
 }
 
 //アクション
@@ -34,6 +32,7 @@ void CObjTitle::Action()
 		m_key_flag = true;
 	}
 }
+
 //ドロー
 void CObjTitle::Draw()
 {

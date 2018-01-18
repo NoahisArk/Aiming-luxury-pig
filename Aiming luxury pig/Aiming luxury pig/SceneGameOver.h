@@ -15,7 +15,4 @@ public:
 	void Scene();
 private:
 
-
-
-
 };

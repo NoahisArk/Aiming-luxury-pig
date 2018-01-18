@@ -114,8 +114,6 @@ void CObjBlock::Draw()
 					src.m_right = 160.0f;
 					src.m_bottom = 149.0f;
 
-					
-
 					//描画
 					Draw::Draw(0, &src, &dst, c, 0.0f);
 				}
@@ -260,7 +258,6 @@ void CObjBlock::BlockHit(
 			}
 		}
 	}
-
 }
 
 //内積関数
@@ -390,7 +387,7 @@ bool CObjBlock::HeroBlckCrossPoint(
 					bool b;
 					float l = 0.0f;
 					b = LineCrossPoint(x, y, x + vx, y + vy,
-						j * 64 + edge[k][0], i * 64 + edge[k][1], j * 64 + edge[k][2], i * 64 + edge[k][3],
+						j * 30 + edge[k][0], i * 30 + edge[k][1], j * 30 + edge[k][2], i * 30 + edge[k][3],
 						&px, &py);
 
 					//交点チェック

@@ -14,6 +14,7 @@ void CObjGameOver::Init()
 {
 	m_key_flag = false;//キーフラグ
 }
+
 //アクション
 void CObjGameOver::Action()
 {
@@ -28,6 +29,7 @@ void CObjGameOver::Action()
 		m_key_flag = true;
     }
 }
+
 //ドロ
 void CObjGameOver::Draw()
 {
@@ -36,6 +38,4 @@ void CObjGameOver::Draw()
 	Font::StrDraw(L"橘さんお肉", 200, 420, 32, c);
 	Font::StrDraw(L"橘さんお肉", 350, 320, 32, c);
 	Font::StrDraw(L"橘さんお肉", 180, 190, 32, c);
-
-
 }
