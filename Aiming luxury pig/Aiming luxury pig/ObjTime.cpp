@@ -30,6 +30,14 @@ void CObjTime::Action()
 	else if (hero->GetBT() == 3)
 	{
 		m_flag_time = false;
+		if (hero->GetBT() == 3)
+		{
+			this->SetStatus(false);
+			//Hits::DeleteHitBox(this);
+
+			Scene::SetScene(new CSceneClear());
+
+		}
 	}
 	//フラグがオンの時、時間を進める
 	if (m_flag_time == true)

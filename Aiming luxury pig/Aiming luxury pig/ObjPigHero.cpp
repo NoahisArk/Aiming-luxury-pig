@@ -44,7 +44,11 @@ void CObjPigHero::Action()
 	if (m_py > 1000.0f)
 	{
 		//場外に出たらリスタート。
-		Scene::SetScene(new CSceneMain());
+		//Scene::SetScene(new CSceneMain());
+		this->SetStatus(false);
+		//Hits::DeleteHitBox(this);
+
+		Scene::SetScene(new CSceneGameOver());
 	}
 	//Xキー入力でジャンプ
 	if (Input::GetVKey('X') == true)
@@ -170,6 +174,7 @@ void CObjPigHero::Action()
 
 	//HitBoxの位置の変更
 	hit->SetPos(m_px, m_py);
+	//Scene::SetScene(new CSceneGameOver());
 
 }
 

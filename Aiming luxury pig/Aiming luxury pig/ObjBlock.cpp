@@ -5,6 +5,7 @@
 #include "GameL\SceneObjManager.h"
 #include "GameHead.h"
 #include "ObjPigHero.h"
+#include "ObjClear.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -116,6 +117,9 @@ void CObjBlock::Draw()
 					src.m_left = 3.0f;
 					src.m_right = 160.0f;
 					src.m_bottom = 149.0f;
+
+					
+
 					//描画
 					Draw::Draw(0, &src, &dst, c, 0.0f);
 				}
