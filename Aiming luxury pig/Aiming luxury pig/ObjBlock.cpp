@@ -51,8 +51,8 @@ void CObjBlock::Action()
 	//敵出現ラインの列を検索
 	for (int i = 0; i < 20; i++)
 	{
-		//列の中から8を探す
-		if (m_map[i][ex] == 8)
+		//列の中から4を探す
+		if (m_map[i][ex] == 4)
 		{
 			//8があれば、敵を出現
 			CObjEnemy* obje = new CObjEnemy(ex * 30.0f, i * 30.0f);
@@ -115,7 +115,7 @@ void CObjBlock::Draw()
 					//描画
 					Draw::Draw(0, &src, &dst, c, 0.0f);
 				}
-				else if (m_map[i][j] == 8)
+				else if (m_map[i][j] == 4)
 				{
 					src.m_top = 0.0f;
 					src.m_left = 0.0f;
