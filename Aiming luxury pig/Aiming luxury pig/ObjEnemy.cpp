@@ -53,7 +53,7 @@ void CObjEnemy::Action()
 	m_ani_max_time = 4;
 
 	//ブロック衝突で向き変更
-	if (m_hit_left == true)
+	if (m_hit_left == false)
 	{
 		m_move = true;
 	}
@@ -62,13 +62,13 @@ void CObjEnemy::Action()
 		m_move = false;
 	}
 	//方向
-	if (m_move == false)
+	if (m_move == true)
 	{
 		m_vx += m_speed_power;
 		m_posture = 1.0f;
 		m_ani_time += 1;
 	}
-	else if (m_move == true)
+	else if (m_move == false)
 	{
 		m_vx -= m_speed_power;
 		m_posture = 0.0f;

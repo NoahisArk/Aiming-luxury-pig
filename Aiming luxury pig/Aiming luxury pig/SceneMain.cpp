@@ -33,7 +33,7 @@ void CSceneMain::InitScene()
 	//外部データの読み込み(ステージ情報)
 	unique_ptr<wchar_t>p;//ステージ情報ポインター
 	int size;//ステージ情報の大きさ
-	p = Save::ExternalDataOpen(L"Book2_1.csv", &size);//外部データの読み込み
+	p = Save::ExternalDataOpen(L"Book3_1.csv", &size);//外部データの読み込み
 
 	int map[20][150];
 	int count = 1;
@@ -57,6 +57,7 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"Block.png", 0, TEX_SIZE_512);
 	//グラフィック読み込み : 主人公,オオカミ,鳥
 	Draw::LoadImageW(L"character.png", 2, TEX_SIZE_512);
+
 
 	//主人公オブジェクト作成
 	CObjPigHero* obj = new CObjPigHero();

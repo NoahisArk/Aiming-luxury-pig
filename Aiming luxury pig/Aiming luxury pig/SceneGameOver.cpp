@@ -33,10 +33,13 @@ void CSceneGameOver::InitScene()
 	Font::SetStrTex(L"橘お肉");
 	Font::SetStrTex(L"橘お肉");
 	Font::SetStrTex(L"橘お肉 Enter_Key");
-
+	
 	//ゲームオーバーオブジェ
 	CObjGameOver* obj = new CObjGameOver();
-	Objs::InsertObj(obj, OBJ_GAME_OVER,10 );
+	Objs::InsertObj(obj, OBJ_GAME_OVER,12 );
+
+	Draw::LoadImageW(L"GameOver.png", 3, TEX_SIZE_512);
+
 }
 
 //実行中メソッド

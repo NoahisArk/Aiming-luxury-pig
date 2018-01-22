@@ -30,9 +30,12 @@ void CSceneClear::InitScene()
 	Font::SetStrTex(L"ぱりぴ");
 	Font::SetStrTex(L"paripi");
 
+
+	Draw::LoadImageW(L"Clear.png", 4, TEX_SIZE_512);
+
 	//クリアオブジェクト作成
 	CObjClear* obj = new CObjClear();//クリアオブジェクト作成
-	Objs::InsertObj(obj, OBJ_CLEAR, 10);//クリアオブジェクト登録
+	Objs::InsertObj(obj, OBJ_CLEAR, 12);//クリアオブジェクト登録
 	
 }
 
