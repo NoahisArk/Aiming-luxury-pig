@@ -35,11 +35,11 @@ void CSceneMain::InitScene()
 	int size;//ステージ情報の大きさ
 	p = Save::ExternalDataOpen(L"Book3_1.csv", &size);//外部データの読み込み
 
-	int map[20][150];
+	int map[20][250];
 	int count = 1;
 	for (int i = 0; i < 20; i++)
 	{
-		for (int j = 0; j < 150; j++)
+		for (int j = 0; j < 250; j++)
 		{
 			int w = 0;
 			swscanf_s(&p.get()[count], L"%d", &w);
