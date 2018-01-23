@@ -202,7 +202,7 @@ void CObjPigHero::Draw()
 	src.m_top = 0.0f;
 	src.m_left = 0.0f + AniData[m_ani_frame] * 150;
 	src.m_right = 155.0 + AniData[m_ani_frame] * 150;
-	src.m_bottom = 140.0f;
+	src.m_bottom = 160.0f;
 
 	//ï\é¶à íuÇÃê›íË
 	dst.m_top = 0.0f + m_py;

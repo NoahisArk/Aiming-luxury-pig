@@ -44,15 +44,15 @@ void CObjGameOver::Draw()
 	Font::SetStrTex(L"‹k‚¨“÷");
 	Font::SetStrTex(L"‹k‚¨“÷ Enter_Key");
 	
-		src.m_top = -450.0f;
-		src.m_left = 200.0f;
-		src.m_right = 402.0f;
-		src.m_bottom =300.0f;
+		src.m_top = -1000.0f;
+		src.m_left = 100.0f;
+		src.m_right = 600.0f;
+		src.m_bottom =50.0f;
 
 		dst.m_top = -50.0f;
 		dst.m_left = 0.0f;
-		dst.m_right = 800.0;
-		dst.m_bottom = 1320.0;
+		dst.m_right = 1050.0;
+		dst.m_bottom = 1500.0;
 
 
 
