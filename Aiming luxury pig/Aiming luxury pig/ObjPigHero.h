@@ -43,7 +43,7 @@ private:
 	float m_speed_power;//スピードパワー
 	float m_ani_max_time;//アニメーション動作間隔最大値
 
-						 //blockとの衝突状態確認用
+	//blockとの衝突状態確認用
 	bool m_hit_up;
 	bool m_hit_down;
 	bool m_hit_left;
@@ -51,6 +51,8 @@ private:
 
 	//踏んでいるblockの種類を確認用
 	int m_block_type;
+
+	bool  m_del;
 
 	//テスト用
 	float px, py;//交点

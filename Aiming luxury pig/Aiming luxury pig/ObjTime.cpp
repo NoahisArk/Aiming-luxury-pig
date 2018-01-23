@@ -36,7 +36,6 @@ void CObjTime::Action()
 			//Hits::DeleteHitBox(this);
 
 			Scene::SetScene(new CSceneClear());
-
 		}
 	}
 	//フラグがオンの時、時間を進める
