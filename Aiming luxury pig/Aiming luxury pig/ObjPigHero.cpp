@@ -12,8 +12,8 @@ using namespace GameL;
 //イニシャライズ
 void CObjPigHero::Init()
 {
-	m_px = 70.0f;//位置
-	m_py = 64.0f;
+	m_px = 0.0f;//位置
+	m_py = 550.0f;
 	m_vx = 0.0f;//移動ベクトル
 	m_vy = 0.0f;
 	m_posture = 1.0f;//右向き0.0f左向き1.0f
@@ -39,15 +39,13 @@ void CObjPigHero::Init()
 //アクション
 void CObjPigHero::Action()
 {
-
-	//落下によるゲームオーバー&リスタート
+	//落下によるゲームオーバー
 	if (m_py > 1000.0f)
 	{
-		//場外に出たらリスタート。
-		//Scene::SetScene(new CSceneMain());
+		//場外に出たらゲームオーバー。
 		this->SetStatus(false);
-		//Hits::DeleteHitBox(this);
-
+		
+		//ゲームオーバー画面に移行
 		Scene::SetScene(new CSceneGameOver());
 	}
 	//Xキー入力でジャンプ
@@ -55,10 +53,9 @@ void CObjPigHero::Action()
 	{
 		if (m_hit_down == true)
 		{
-			m_vy = -15;
+			m_vy = -12.5;
 		}
 	}
-
 	//Zキー入力で速度アップ
 	if (Input::GetVKey('Z') == true)
 	{
@@ -120,9 +117,19 @@ void CObjPigHero::Action()
 	//敵と当たっているか確認
 	if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 	{
+		if (hit->CheckElementHit(ELEMENT_ENEMY) == true)
+		{
+			//自身に削除命令を出す。
+			this->SetStatus(false);
+
+			//シーンをゲームオーバーに移行する
+			Scene::SetScene(new CSceneGameOver());
+		}
+
 		//主人公が敵とどの角度で当たっているかを確認
 		HIT_DATA**hit_data;//当たった時の細かな情報を入れるための構造体
 		hit_data = hit->SearchObjNameHit(OBJ_ENEMY);//hit_dataに主人公と当たっている他全てのHitBoxとの情報を入れる
+
 		for (int i = 0; i < hit->GetCount(); i++)
 		{
 			//敵の左右に当たったら
@@ -176,8 +183,6 @@ void CObjPigHero::Action()
 
 	//HitBoxの位置の変更
 	hit->SetPos(m_px, m_py);
-	//Scene::SetScene(new CSceneGameOver());
-
 }
 
 //ドロー

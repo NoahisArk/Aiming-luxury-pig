@@ -108,7 +108,7 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -144,6 +144,7 @@
     <ClCompile Include="ObjPigHero.cpp" />
     <ClCompile Include="ObjTime.cpp" />
     <ClCompile Include="ObjTitle.cpp" />
+    <ClCompile Include="ObjTrap.cpp" />
     <ClCompile Include="SceneClear.cpp" />
     <ClCompile Include="SceneGameOver.cpp" />
     <ClCompile Include="SceneMain.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="ObjPigHero.h" />
     <ClInclude Include="ObjTime.h" />
     <ClInclude Include="ObjTitle.h" />
+    <ClInclude Include="ObjTrap.h" />
     <ClInclude Include="SceneClear.h" />
     <ClInclude Include="SceneGameOver.h" />
     <ClInclude Include="SceneMain.h" />

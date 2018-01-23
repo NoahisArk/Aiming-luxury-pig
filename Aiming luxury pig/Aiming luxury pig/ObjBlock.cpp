@@ -55,11 +55,25 @@ void CObjBlock::Action()
 		//列の中から4を探す
 		if (m_map[i][ex] == 4)
 		{
-			//8があれば、敵を出現
+			//4があれば、敵を出現
 			CObjEnemy* obje = new CObjEnemy(ex * 30.0f, i * 30.0f);
-			Objs::InsertObj(obje, OBJ_ENEMY, 10);
+			Objs::InsertObj(obje, OBJ_ENEMY, 13);
 
 			//敵出現場所の値を0にする
+			m_map[i][ex] = 0;
+		}
+	}
+	//罠出現ラインの列を検索
+	for (int i = 0; i < 20; i++)
+	{
+		//列の中から6を探す
+		if (m_map[i][ex] == 6)
+		{
+			//6があれば、罠を出現
+			CObjTrap* obje = new CObjTrap(ex * 30.0f, i * 30.0f);
+			Objs::InsertObj(obje, OBJ_TRAP, 12);
+
+			//罠出現場所の値を0にする
 			m_map[i][ex] = 0;
 		}
 	}
@@ -119,12 +133,13 @@ void CObjBlock::Draw()
 				}
 				else if (m_map[i][j] == 4)
 				{
-					src.m_top = 0.0f;
-					src.m_left = 0.0f;
-					src.m_right = 0.0f;
-					src.m_bottom = src.m_top + 0.0f;
-					//描画
-					Draw::Draw(2, &src, &dst, c, 0.0f);
+					//敵(オオカミ)：切り取り位置
+					;
+				}
+				else if (m_map[i][j] == 6)
+				{
+					//罠(トラップ)：切り取り位置
+					;
 				}
 				else
 				{

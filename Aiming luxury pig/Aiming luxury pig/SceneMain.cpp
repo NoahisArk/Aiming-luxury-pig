@@ -33,7 +33,7 @@ void CSceneMain::InitScene()
 	//外部データの読み込み(ステージ情報)
 	unique_ptr<wchar_t>p;//ステージ情報ポインター
 	int size;//ステージ情報の大きさ
-	p = Save::ExternalDataOpen(L"Book3_1.csv", &size);//外部データの読み込み
+	p = Save::ExternalDataOpen(L"trap.csv", &size);//(L"Book3_1.csv", &size);//外部データの読み込み
 
 	int map[20][250];
 	int count = 1;
@@ -53,9 +53,9 @@ void CSceneMain::InitScene()
 
 	//グラフィック読み込み : 背景,クリア,ゲームオーバ
 	Draw::LoadImageW(L"background.png", 1, TEX_SIZE_512);
-	//グラフィック読み込み : ブロック
+	//グラフィック読み込み : ブロック,罠
 	Draw::LoadImageW(L"Block.png", 0, TEX_SIZE_512);
-	//グラフィック読み込み : 主人公,オオカミ,鳥
+	//グラフィック読み込み : 主人公,オオカミ
 	Draw::LoadImageW(L"character.png", 2, TEX_SIZE_512);
 
 
