@@ -117,15 +117,6 @@ void CObjPigHero::Action()
 	//敵と当たっているか確認
 	if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 	{
-		if (hit->CheckElementHit(ELEMENT_ENEMY) == true)
-		{
-			//自身に削除命令を出す。
-			this->SetStatus(false);
-
-			//シーンをゲームオーバーに移行する
-			Scene::SetScene(new CSceneGameOver());
-		}
-
 		//主人公が敵とどの角度で当たっているかを確認
 		HIT_DATA**hit_data;//当たった時の細かな情報を入れるための構造体
 		hit_data = hit->SearchObjNameHit(OBJ_ENEMY);//hit_dataに主人公と当たっている他全てのHitBoxとの情報を入れる
