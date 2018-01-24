@@ -10,10 +10,10 @@
 //使用するネームスペース
 using namespace GameL;
 
-CObjBlock::CObjBlock(int map[20][250])
+CObjBlock::CObjBlock(int map[20][300])
 {
 	//マップデータをコピー
-	memcpy(m_map, map, sizeof(int)*(20 * 250));
+	memcpy(m_map, map, sizeof(int)*(20 * 300));
 }
 //イニシャライズ
 void CObjBlock::Init()
@@ -44,7 +44,7 @@ void CObjBlock::Action()
 	}
 	//敵出現ライン
 	//主人公の位置+500を敵出現ラインにする
-	float line = hx + (-m_scroll) + 250;
+	float line = hx + (-m_scroll) + 300;
 
 	//敵出現ラインを要素番号化
 	int ex = ((int)line) / 30;
@@ -101,7 +101,7 @@ void CObjBlock::Draw()
 	//マップチップによるblock設置
 	for (int i = 0; i < 20; i++)
 	{
-		for (int j = 0; j < 250; j++)
+		for (int j = 0; j < 300; j++)
 		{
 			if (m_map[i][j] > 0)
 			{
@@ -201,7 +201,7 @@ void CObjBlock::BlockHit(
 	//mmapの全要素にアクセス
 	for (int i = 0; i < 20; i++)
 	{
-		for (int j = 0; j < 250; j++)
+		for (int j = 0; j < 300; j++)
 		{
 			if (m_map[i][j] > 0 && m_map[i][j] != 4)
 			{
@@ -390,7 +390,7 @@ bool CObjBlock::HeroBlckCrossPoint(
 	//m_mapの全要素にアクセス
 	for (int i = 0; i < 20; i++)
 	{
-		for (int j = 0; j < 250; j++)
+		for (int j = 0; j < 300; j++)
 		{
 			if (m_map[i][j] > 0 && m_map[i][j] != 4)
 			{

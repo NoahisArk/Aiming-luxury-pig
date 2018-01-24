@@ -10,7 +10,7 @@ using namespace GameL;
 class CObjBlock :public CObj
 {
 public:
-	CObjBlock(int map[20][250]);
+	CObjBlock(int map[20][300]);
 	~CObjBlock() {};
 	void Init();//イニシャライズ
 	void Action();//アクション
@@ -31,7 +31,7 @@ public:
 	);
 private:
 	void BlockDraw(float x, float y, RECT_F*dst, float c[]);
-	int m_map[20][250];//マップ情報
+	int m_map[20][300];//マップ情報
 
 	float m_scroll;//左右スクロール用
 
