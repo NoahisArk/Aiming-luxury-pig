@@ -63,6 +63,20 @@ void CObjBlock::Action()
 			m_map[i][ex] = 0;
 		}
 	}
+	//敵出現ラインの列を検索
+	for (int i = 0; i < 20; i++)
+	{
+		//列の中から8を探す
+		if (m_map[i][ex] == 8)
+		{
+			//4があれば、敵を出現
+			CObjBombEnemy* obje = new CObjBombEnemy(ex * 30.0f, i * 30.0f);
+			Objs::InsertObj(obje, OBJ_BOMBENEMY, 13);
+
+			//敵出現場所の値を0にする
+			m_map[i][ex] = 0;
+		}
+	}
 	//罠出現ラインの列を検索
 	for (int i = 0; i < 20; i++)
 	{
@@ -139,6 +153,11 @@ void CObjBlock::Draw()
 				else if (m_map[i][j] == 6)
 				{
 					//罠(トラップ)：切り取り位置
+					;
+				}
+				else if (m_map[i][j] == 8)
+				{
+					//敵(オオカミ(爆弾))：切り取り位置
 					;
 				}
 				else

@@ -133,7 +133,7 @@ void CObjBombEnemy::Draw()
 	RECT_F dst;//•`‰ææ•\¦ˆÊ’u
 
 			   //Ø‚èæ‚èˆÊ’u‚Ìİ’è
-	src.m_top = 150.0f;
+	src.m_top = 300.0f;
 	src.m_left = 0.0f + AniData[m_ani_frame] * 150;
 	src.m_right = 150.0 + AniData[m_ani_frame] * 150;
 	src.m_bottom = src.m_top + 150.0f;
