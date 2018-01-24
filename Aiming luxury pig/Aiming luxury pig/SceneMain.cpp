@@ -4,7 +4,7 @@
 
 //GameLで使用するヘッダー
 #include "GameL\SceneObjManager.h"
-#include"GameL\DrawTexture.h"
+#include "GameL\DrawTexture.h"
 #include "GameL\DrawFont.h"
 #include "GameL\UserData.h"
 //使用するネームスペース
@@ -55,7 +55,7 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"background.png", 1, TEX_SIZE_512);
 	//グラフィック読み込み : ブロック,罠
 	Draw::LoadImageW(L"Block.png", 0, TEX_SIZE_512);
-	//グラフィック読み込み : 主人公,オオカミ
+	//グラフィック読み込み : 主人公,オオカミ,オオカミ弾
 	Draw::LoadImageW(L"character.png", 2, TEX_SIZE_512);
 
 

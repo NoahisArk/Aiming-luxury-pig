@@ -34,31 +34,23 @@ void CObjGameOver::Action()
 void CObjGameOver::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
-	
-	
 
-		RECT_F src;//•`‰æŒ³Ø‚èæ‚èˆÊ’u
-		RECT_F dst;//•`‰ææ•\¦ˆÊ’u
+	RECT_F src;//•`‰æŒ³Ø‚èæ‚èˆÊ’u
+	RECT_F dst;//•`‰ææ•\¦ˆÊ’u
 
 	Font::SetStrTex(L"‹k‚¨“÷");
 	Font::SetStrTex(L"‹k‚¨“÷");
 	Font::SetStrTex(L"‹k‚¨“÷ Enter_Key");
 	
-		src.m_top = -1000.0f;
-		src.m_left = 100.0f;
-		src.m_right = 600.0f;
-		src.m_bottom =50.0f;
+	src.m_top    =    0.0f;
+	src.m_left   =    0.0f;
+	src.m_right  =  700.0f;
+	src.m_bottom = 1100.0f;
 
-		dst.m_top = -50.0f;
-		dst.m_left = 0.0f;
-		dst.m_right = 1050.0;
-		dst.m_bottom = 1500.0;
+	dst.m_top    =   60.0f;
+	dst.m_left   =   50.0f;
+	dst.m_right  = 1000.0f;
+	dst.m_bottom = 1200.0f;
 
-
-
-
-		Draw::Draw(3, &src, &dst, c, 0.0f);
-
-		
-	
+	Draw::Draw(3, &src, &dst, c, 0.0f);
 }

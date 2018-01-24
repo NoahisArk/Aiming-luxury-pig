@@ -38,7 +38,7 @@ void CSceneGameOver::InitScene()
 	CObjGameOver* obj = new CObjGameOver();
 	Objs::InsertObj(obj, OBJ_GAME_OVER,12 );
 
-	Draw::LoadImageW(L"GameOver.png", 3, TEX_SIZE_512);
+	Draw::LoadImageW(L"Game Over.png", 3, TEX_SIZE_512);
 
 }
 

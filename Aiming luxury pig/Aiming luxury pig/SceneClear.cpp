@@ -31,7 +31,7 @@ void CSceneClear::InitScene()
 	Font::SetStrTex(L"paripi");
 
 
-	Draw::LoadImageW(L"Clear.png", 4, TEX_SIZE_512);
+	Draw::LoadImageW(L"Game Clear.png", 4, TEX_SIZE_512);
 
 	//クリアオブジェクト作成
 	CObjClear* obj = new CObjClear();//クリアオブジェクト作成

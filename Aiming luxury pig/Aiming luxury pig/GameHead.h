@@ -14,6 +14,7 @@ enum OBJ_NAME
 	OBJ_GAME_OVER,
 	OBJ_CLEAR,
 	OBJ_TRAP,
+	OBJ_BOMBENEMY,
 };
 //------------------------------------------------
 
@@ -65,6 +66,7 @@ struct UserData
 #include "ObjGameOver.h"
 #include "ObjClear.h"
 #include "ObjTrap.h"
+#include "ObjBombEnemy.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
