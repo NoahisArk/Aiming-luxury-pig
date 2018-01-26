@@ -150,7 +150,7 @@ void CObjBlock::Draw()
 					//土 : 切り取り位置
 					src.m_top    =   3.0f;
 					src.m_left   = 330.0f;
-					src.m_right  = 487.0f;
+					src.m_right  = 400.0f;
 					src.m_bottom = 149.0f;
 
 					//描画
@@ -160,8 +160,8 @@ void CObjBlock::Draw()
 				{
 					//草 : 切り取り位置
 					src.m_top    = 160.0f;
-					src.m_left   =   3.0f;
-					src.m_right  = 163.0f;
+					src.m_left   =  10.0f;
+					src.m_right  = 160.0f;
 					src.m_bottom = 304.0f;
 
 					//描画
@@ -205,8 +205,8 @@ void CObjBlock::BlockDraw(float x, float y, RECT_F*dst, float c[])
 	RECT_F src;
 	//ブロック : 切り取り位置
 	src.m_top    = 158.0f;
-	src.m_left   = 165.0f;
-	src.m_right  = src.m_left + 130.0f;
+	src.m_left   = 175.0f;
+	src.m_right  = src.m_left + 150.0f;
 	src.m_bottom = src.m_top  + 145.0f;
 	//描画
 	Draw::Draw(0, &src, dst, c, 0.0f);
@@ -275,12 +275,12 @@ void CObjBlock::BlockHit(
 					if (len < 33.0f)
 					{
 						//角度で上下左右を判定
-						if ((r < 45 && r>0) || r > 315)
+						if ((r < 30 && r>0) || r > 315)
 						{
 							//右
 							*right = true;//主人公の左の部分が衝突している
 							*x = bx + 30.0f + (scroll);//ブロック位置+主人公の幅
-							*vx = -(*vx)*0.1f;//-VX*反発係数
+							*vx = 0.2f;//-VX*反発係数
 						}
 						if (r > 45 && r < 135)
 						{
@@ -292,14 +292,14 @@ void CObjBlock::BlockHit(
 								*bt = m_map[i][j];//ブロックの要素(type)を主人公に渡す
 							*vy = 0.0f;
 						}
-						if (r > 135 && r < 225)
+						if (r > 120 && r < 225)
 						{
 							//左
 							*left = true;//主人公の右の部分が衝突している
 							*x = bx - 30.0f + (scroll);//ブロック位置-主人公の幅
-							*vx = -(*vx)*0.1f;//-VX*反発係数
+							*vx = -0.2f;//-VX*反発係数
 						}
-						if (r > 225 && r < 315)
+						if (r > 210 && r < 315)
 						{
 							//下
 							*up = true;//主人公の上の部分が衝突している

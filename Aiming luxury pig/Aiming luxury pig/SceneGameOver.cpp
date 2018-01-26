@@ -30,9 +30,9 @@ CSceneGameOver::~CSceneGameOver()
 void CSceneGameOver::InitScene()
 {
 	//出力させる文字のグラフィックを作成
-	Font::SetStrTex(L"橘お肉");
-	Font::SetStrTex(L"橘お肉");
-	Font::SetStrTex(L"橘お肉 Enter_Key");
+	Font::SetStrTex(L"");
+	Font::SetStrTex(L"");
+	Font::SetStrTex(L"");
 	
 	//ゲームオーバーオブジェ
 	CObjGameOver* obj = new CObjGameOver();

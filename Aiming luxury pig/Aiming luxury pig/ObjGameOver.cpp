@@ -38,9 +38,9 @@ void CObjGameOver::Draw()
 	RECT_F src;//•`‰æŒ³Ø‚èæ‚èˆÊ’u
 	RECT_F dst;//•`‰ææ•\¦ˆÊ’u
 
-	Font::SetStrTex(L"‹k‚¨“÷");
-	Font::SetStrTex(L"‹k‚¨“÷");
-	Font::SetStrTex(L"‹k‚¨“÷ Enter_Key");
+	Font::SetStrTex(L"");
+	Font::SetStrTex(L"");
+	Font::SetStrTex(L"");
 	
 	src.m_top    =    0.0f;
 	src.m_left   =    0.0f;

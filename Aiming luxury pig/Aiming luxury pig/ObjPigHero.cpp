@@ -120,49 +120,52 @@ void CObjPigHero::Action()
 		//主人公が敵とどの角度で当たっているかを確認
 		HIT_DATA**hit_data;//当たった時の細かな情報を入れるための構造体
 		hit_data = hit->SearchObjNameHit(OBJ_ENEMY);//hit_dataに主人公と当たっている他全てのHitBoxとの情報を入れる
-
+		
 		for (int i = 0; i < hit->GetCount(); i++)
 		{
 			//敵の左右に当たったら
-			float r = hit_data[i]->r;
-			if ((r < 45 && r >= 0) || r > 315)
+			if (hit_data[i] != nullptr)
 			{
-				m_vx = -15.0f;//左に移動させる
-			}
-			if (r > 135 && r < 225)
-			{
-				m_vx = +15.0f;//右に移動させる
-			}
-			if (r = 225 && r < 315)
-			{
-				//敵の移動方向を主人公の位置に加算
-				m_px += ((CObjEnemy*)hit_data[i]->o)->GetVx();
+				float r = hit_data[i]->r;
+				if ((r < 45 && r >= 0) || r > 315)
+				{
+					m_vx = -15.0f;//左に移動させる
+				}
+				if (r > 135 && r < 225)
+				{
+					m_vx = +15.0f;//右に移動させる
+				}
+				if (r = 225 && r < 315)
+				{
+					//敵の移動方向を主人公の位置に加算
+					m_px += ((CObjEnemy*)hit_data[i]->o)->GetVx();
 
-				CObjBlock*b = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
+					CObjBlock*b = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 
-				//後方スクロールライン
-				if (m_px < 80)
-				{
-					m_px = 80;
-					b->SetScroll(b->GetScroll() + 5.0);
-				}
-				//前方スクロール
-				if (m_px > 300)
-				{
-					m_px = 300;
-					b->SetScroll(b->GetScroll() - 5.0);
-				}
-				//頭に載せる処理
-				if (m_vy < -1.0f)
-				{
-					//ジャンプしてる場合下記の影響を出ないようにする
-				}
-				else
-				{
-					//主人公が敵の頭に乗っているので、Yvecは0にして落下させない
-					//また、地面に当たっている判定にする
-					m_vy = 0.0f;
-					m_hit_down = true;
+					//後方スクロールライン
+					if (m_px < 80)
+					{
+						m_px = 80;
+						b->SetScroll(b->GetScroll() + 5.0);
+					}
+					//前方スクロール
+					if (m_px > 300)
+					{
+						m_px = 300;
+						b->SetScroll(b->GetScroll() - 5.0);
+					}
+					//頭に載せる処理
+					if (m_vy < -1.0f)
+					{
+						//ジャンプしてる場合下記の影響を出ないようにする
+					}
+					else
+					{
+						//主人公が敵の頭に乗っているので、Yvecは0にして落下させない
+						//また、地面に当たっている判定にする
+						m_vy = 0.0f;
+						m_hit_down = true;
+					}
 				}
 			}
 		}

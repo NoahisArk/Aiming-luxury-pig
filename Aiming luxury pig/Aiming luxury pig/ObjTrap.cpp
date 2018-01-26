@@ -47,7 +47,7 @@ void CObjTrap::Action()
 	hit->SetPos(m_px + block->GetScroll(), m_py);
 
 	//主人公の位置を取得
-	CObjPigHero*hero = (CObjPigHero*)Objs::GetObj(OBJ_PIGHERO);
+	//CObjPigHero*hero = (CObjPigHero*)Objs::GetObj(OBJ_PIGHERO);
 
 	//敵と当たっているか確認
 	if (hit->CheckObjNameHit(OBJ_PIGHERO) != nullptr)

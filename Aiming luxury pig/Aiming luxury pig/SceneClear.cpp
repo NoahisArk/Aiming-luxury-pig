@@ -27,8 +27,8 @@ CSceneClear::~CSceneClear()
 //‰Šú‚©ƒƒ\ƒbƒh
 void CSceneClear::InitScene()
 {
-	Font::SetStrTex(L"‚Ï‚è‚Ò");
-	Font::SetStrTex(L"paripi");
+	Font::SetStrTex(L"");
+	Font::SetStrTex(L"");
 
 
 	Draw::LoadImageW(L"Game Clear.png", 4, TEX_SIZE_512);
