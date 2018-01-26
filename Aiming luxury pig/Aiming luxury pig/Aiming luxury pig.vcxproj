@@ -143,6 +143,7 @@
     <ClCompile Include="ObjEnemy.cpp" />
     <ClCompile Include="ObjGameOver.cpp" />
     <ClCompile Include="ObjPigHero.cpp" />
+    <ClCompile Include="ObjSelect.cpp" />
     <ClCompile Include="ObjTime.cpp" />
     <ClCompile Include="ObjTitle.cpp" />
     <ClCompile Include="ObjTrap.cpp" />
@@ -150,6 +151,7 @@
     <ClCompile Include="SceneGameOver.cpp" />
     <ClCompile Include="SceneMain.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
+    <ClCompile Include="Select.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h" />
@@ -171,6 +173,7 @@
     <ClInclude Include="ObjEnemy.h" />
     <ClInclude Include="ObjGameOver.h" />
     <ClInclude Include="ObjPigHero.h" />
+    <ClInclude Include="ObjSelect.h" />
     <ClInclude Include="ObjTime.h" />
     <ClInclude Include="ObjTitle.h" />
     <ClInclude Include="ObjTrap.h" />
@@ -178,6 +181,7 @@
     <ClInclude Include="SceneGameOver.h" />
     <ClInclude Include="SceneMain.h" />
     <ClInclude Include="SceneTitle.h" />
+    <ClInclude Include="Select.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="GameL\Draw2DTex.hlsl" />

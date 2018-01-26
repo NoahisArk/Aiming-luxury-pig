@@ -46,11 +46,24 @@ void CSceneMain::InitScene()
 	//外部データの読み込み(ステージ情報)
 	unique_ptr<wchar_t>p;//ステージ情報ポインター
 	int size;//ステージ情報の大きさ
-	//p = Save::ExternalDataOpen(L"Book4_1.csv", &size);//外部データの読み込み
+	p = Save::ExternalDataOpen(L"Book4_1.csv", &size);//外部データの読み込み
 	p = Save::ExternalDataOpen(L"ノーマル.csv", &size);//外部データの読み込み
+	p = Save::ExternalDataOpen(L"天国.csv", &size);//外部データの読み込み
 
-	int map[20][250];
+	int map1[20][150];
 	int count = 1;
+	for (int i = 0; i < 20; i++)
+	{
+		for (int j = 0; j < 150; j++)
+		{
+			int w = 0;
+			swscanf_s(&p.get()[count], L"%d", &w);
+
+			map1[i][j] = w;
+			count += 2;
+		}
+	}
+	int map2[20][250];
 	for (int i = 0; i < 20; i++)
 	{
 		for (int j = 0; j < 250; j++)
@@ -58,7 +71,19 @@ void CSceneMain::InitScene()
 			int w = 0;
 			swscanf_s(&p.get()[count], L"%d", &w);
 
-			map[i][j] = w;
+			map2[i][j] = w;
+			count += 2;
+		}
+	}
+	int map3[20][300];
+	for (int i = 0; i < 20; i++)
+	{
+		for (int j = 0; j < 300; j++)
+		{
+			int w = 0;
+			swscanf_s(&p.get()[count], L"%d", &w);
+
+			map3[i][j] = w;
 			count += 2;
 		}
 	}
@@ -78,7 +103,7 @@ void CSceneMain::InitScene()
 	Objs::InsertObj(obj, OBJ_PIGHERO, 10);
 
 	//blockオブジェクト作成
-	CObjBlock* objb = new CObjBlock(map);
+	CObjBlock* objb = new CObjBlock(map1,map2,map3);
 	Objs::InsertObj(objb, OBJ_BLOCK, 9);
 
 	//タイムオブジェクト作成

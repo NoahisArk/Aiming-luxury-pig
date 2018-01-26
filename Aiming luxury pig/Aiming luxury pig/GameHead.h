@@ -15,6 +15,7 @@ enum OBJ_NAME
 	OBJ_CLEAR,
 	OBJ_TRAP,
 	OBJ_BOMBENEMY,
+	OBJ_SELECT,
 };
 //------------------------------------------------
 
@@ -67,6 +68,7 @@ struct UserData
 #include "ObjClear.h"
 #include "ObjTrap.h"
 #include "ObjBombEnemy.h"
+#include "ObjSelect.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
@@ -74,6 +76,7 @@ struct UserData
 #include "SceneTitle.h"
 #include "SceneGameOver.h"
 #include "SceneClear.h"
+#include "Select.h"
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------

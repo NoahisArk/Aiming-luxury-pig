@@ -18,12 +18,12 @@ void CObjTitle::Init()
 //アクション
 void CObjTitle::Action()
 {
-	//エンターキーを押してシーン:ゲームメインに移行する
+	//エンターキーを押してシーン:select画面に移行する
 	if (Input::GetVKey(VK_RETURN) == true)
 	{
 		if (m_key_flag == true)
 		{
-			Scene::SetScene(new CSceneMain());
+			Scene::SetScene(new CSelect());
 			m_key_flag = false;
 		}
 	}

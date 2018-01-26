@@ -10,10 +10,14 @@
 //使用するネームスペース
 using namespace GameL;
 
-CObjBlock::CObjBlock(int map[20][250])
+CObjBlock::CObjBlock(int map1[20][150], int map2[20][250], int map3[20][300])
 {
-	//マップデータをコピー
-	memcpy(m_map, map, sizeof(int)*(20 * 250));
+	//マップデータをコピー:ハード
+	memcpy(m_map1, map1, sizeof(int)*(20 * 150));
+	//マップデータをコピー:ノーマル
+	memcpy(m_map2, map2, sizeof(int)*(20 * 250));
+	//マップデータをコピー:イージー
+	memcpy(m_map3, map3, sizeof(int)*(20 * 300));
 }
 //イニシャライズ
 void CObjBlock::Init()
@@ -53,42 +57,42 @@ void CObjBlock::Action()
 	for (int i = 0; i < 20; i++)
 	{
 		//列の中から4を探す
-		if (m_map[i][ex] == 4)
+		if (m_map1[i][ex] == 4)
 		{
 			//4があれば、敵を出現
 			CObjEnemy* obje = new CObjEnemy(ex * 30.0f, i * 30.0f);
 			Objs::InsertObj(obje, OBJ_ENEMY, 13);
 
 			//敵出現場所の値を0にする
-			m_map[i][ex] = 0;
+			m_map1[i][ex] = 0;
 		}
 	}
 	//敵出現ラインの列を検索
 	for (int i = 0; i < 20; i++)
 	{
 		//列の中から8を探す
-		if (m_map[i][ex] == 8)
+		if (m_map1[i][ex] == 8)
 		{
 			//4があれば、敵を出現
 			CObjBombEnemy* obje = new CObjBombEnemy(ex * 30.0f, i * 30.0f);
 			Objs::InsertObj(obje, OBJ_BOMBENEMY, 13);
 
 			//敵出現場所の値を0にする
-			m_map[i][ex] = 0;
+			m_map1[i][ex] = 0;
 		}
 	}
 	//罠出現ラインの列を検索
 	for (int i = 0; i < 20; i++)
 	{
 		//列の中から6を探す
-		if (m_map[i][ex] == 6)
+		if (m_map1[i][ex] == 6)
 		{
 			//6があれば、罠を出現
 			CObjTrap* obje = new CObjTrap(ex * 30.0f, i * 30.0f);
 			Objs::InsertObj(obje, OBJ_TRAP, 12);
 
 			//罠出現場所の値を0にする
-			m_map[i][ex] = 0;
+			m_map1[i][ex] = 0;
 		}
 	}
 }
@@ -115,16 +119,16 @@ void CObjBlock::Draw()
 	//マップチップによるblock設置
 	for (int i = 0; i < 20; i++)
 	{
-		for (int j = 0; j < 250; j++)
+		for (int j = 0; j < 150; j++)
 		{
-			if (m_map[i][j] > 0)
+			if (m_map1[i][j] > 0)
 			{
 				//表示位置の設定
 				dst.m_top    = i * 30.0f;
 				dst.m_left   = j * 30.0f  + m_scroll;
 				dst.m_right  = dst.m_left + 30.0;
 				dst.m_bottom = dst.m_top  + 30.0;
-				if (m_map[i][j] == 2)
+				if (m_map1[i][j] == 2)
 				{
 					//スタートブロック : 切り取り位置
 					src.m_top = 2.0f;
@@ -134,7 +138,7 @@ void CObjBlock::Draw()
 					//描画
 					Draw::Draw(0, &src, &dst, c, 0.0f);
 				}
-				else if (m_map[i][j] == 3)
+				else if (m_map1[i][j] == 3)
 				{
 					//ゴールブロック : 切り取り位置
 					src.m_top = 2.0f;
@@ -145,7 +149,7 @@ void CObjBlock::Draw()
 					//描画
 					Draw::Draw(0, &src, &dst, c, 0.0f);
 				}
-				else if (m_map[i][j] == 5)
+				else if (m_map1[i][j] == 5)
 				{
 					//土 : 切り取り位置
 					src.m_top    =   3.0f;
@@ -156,7 +160,7 @@ void CObjBlock::Draw()
 					//描画
 					Draw::Draw(0, &src, &dst, c, 0.0f);
 				}
-				else if (m_map[i][j] == 7)
+				else if (m_map1[i][j] == 7)
 				{
 					//草 : 切り取り位置
 					src.m_top    = 160.0f;
@@ -167,17 +171,17 @@ void CObjBlock::Draw()
 					//描画
 					Draw::Draw(0, &src, &dst, c, 0.0f);
 				}
-				else if (m_map[i][j] == 4)
+				else if (m_map1[i][j] == 4)
 				{
 					//敵(オオカミ)：切り取り位置
 					;
 				}
-				else if (m_map[i][j] == 6)
+				else if (m_map1[i][j] == 6)
 				{
 					//罠(トラップ)：切り取り位置
 					;
 				}
-				else if (m_map[i][j] == 8)
+				else if (m_map1[i][j] == 8)
 				{
 					//敵(オオカミ(爆弾))：切り取り位置
 					;
@@ -242,9 +246,9 @@ void CObjBlock::BlockHit(
 	//mmapの全要素にアクセス
 	for (int i = 0; i < 20; i++)
 	{
-		for (int j = 0; j < 250; j++)
+		for (int j = 0; j < 150; j++)
 		{
-			if (m_map[i][j] > 0 && m_map[i][j] != 4)
+			if (m_map1[i][j] > 0 && m_map1[i][j] != 4)
 			{
 				//要素番号を座標に変更
 				float bx = j * 30.0f;
@@ -288,8 +292,8 @@ void CObjBlock::BlockHit(
 							*down = true;//主人の下の部分が衝突している
 							*y = by - 30.0f;//ブロック位置-主人公の幅
 											//種類を渡すのスタートとゴールのみ変更する
-							if (m_map[i][j] >= 2)
-								*bt = m_map[i][j];//ブロックの要素(type)を主人公に渡す
+							if (m_map1[i][j] >= 2)
+								*bt = m_map1[i][j];//ブロックの要素(type)を主人公に渡す
 							*vy = 0.0f;
 						}
 						if (r > 120 && r < 225)
@@ -431,9 +435,9 @@ bool CObjBlock::HeroBlckCrossPoint(
 	//m_mapの全要素にアクセス
 	for (int i = 0; i < 20; i++)
 	{
-		for (int j = 0; j < 250; j++)
+		for (int j = 0; j < 150; j++)
 		{
-			if (m_map[i][j] > 0 && m_map[i][j] != 4)
+			if (m_map1[i][j] > 0 && m_map1[i][j] != 4)
 			{
 				//ブロックの4辺から交点を探す
 				for (int k = 0; k < 4; k++)

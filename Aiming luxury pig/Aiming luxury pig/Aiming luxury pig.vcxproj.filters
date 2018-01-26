@@ -22,6 +22,9 @@
     <Filter Include="ソース ファイル\Game:Title">
       <UniqueIdentifier>{2f9b772e-ae37-41b4-9d0d-475b8a709cce}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Game:Select">
+      <UniqueIdentifier>{3cdb937c-8e06-4e84-aa40-ca549529a664}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameL\Audio.cpp">
@@ -98,6 +101,12 @@
     </ClCompile>
     <ClCompile Include="ObjBombEnemy.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Select.cpp">
+      <Filter>ソース ファイル\Game:Select</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjSelect.cpp">
+      <Filter>ソース ファイル\Game:Select</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +187,12 @@
     </ClInclude>
     <ClInclude Include="ObjBombEnemy.h">
       <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Select.h">
+      <Filter>ソース ファイル\Game:Select</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjSelect.h">
+      <Filter>ソース ファイル\Game:Select</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
