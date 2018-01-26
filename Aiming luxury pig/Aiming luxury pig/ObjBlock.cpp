@@ -10,10 +10,10 @@
 //使用するネームスペース
 using namespace GameL;
 
-CObjBlock::CObjBlock(int map[20][300])
+CObjBlock::CObjBlock(int map[20][250])
 {
 	//マップデータをコピー
-	memcpy(m_map, map, sizeof(int)*(20 * 300));
+	memcpy(m_map, map, sizeof(int)*(20 * 250));
 }
 //イニシャライズ
 void CObjBlock::Init()
@@ -115,7 +115,7 @@ void CObjBlock::Draw()
 	//マップチップによるblock設置
 	for (int i = 0; i < 20; i++)
 	{
-		for (int j = 0; j < 300; j++)
+		for (int j = 0; j < 250; j++)
 		{
 			if (m_map[i][j] > 0)
 			{
@@ -141,6 +141,28 @@ void CObjBlock::Draw()
 					src.m_left = 3.0f;
 					src.m_right = 160.0f;
 					src.m_bottom = 149.0f;
+
+					//描画
+					Draw::Draw(0, &src, &dst, c, 0.0f);
+				}
+				else if (m_map[i][j] == 5)
+				{
+					//土 : 切り取り位置
+					src.m_top    =   3.0f;
+					src.m_left   = 330.0f;
+					src.m_right  = 487.0f;
+					src.m_bottom = 149.0f;
+
+					//描画
+					Draw::Draw(0, &src, &dst, c, 0.0f);
+				}
+				else if (m_map[i][j] == 7)
+				{
+					//草 : 切り取り位置
+					src.m_top    = 160.0f;
+					src.m_left   =   3.0f;
+					src.m_right  = 163.0f;
+					src.m_bottom = 304.0f;
 
 					//描画
 					Draw::Draw(0, &src, &dst, c, 0.0f);
@@ -220,7 +242,7 @@ void CObjBlock::BlockHit(
 	//mmapの全要素にアクセス
 	for (int i = 0; i < 20; i++)
 	{
-		for (int j = 0; j < 300; j++)
+		for (int j = 0; j < 250; j++)
 		{
 			if (m_map[i][j] > 0 && m_map[i][j] != 4)
 			{
@@ -409,7 +431,7 @@ bool CObjBlock::HeroBlckCrossPoint(
 	//m_mapの全要素にアクセス
 	for (int i = 0; i < 20; i++)
 	{
-		for (int j = 0; j < 300; j++)
+		for (int j = 0; j < 250; j++)
 		{
 			if (m_map[i][j] > 0 && m_map[i][j] != 4)
 			{
