@@ -5,6 +5,7 @@
 //GameLで使用するヘッダー
 #include "GameL\SceneObjManager.h"
 #include "GameL\DrawFont.h"
+#include "GameL\Audio.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -27,6 +28,17 @@ CSceneClear::~CSceneClear()
 //初期かメソッド
 void CSceneClear::InitScene()
 {
+
+	//音楽情報の読み込み
+	Audio::LoadAudio(0, L"clear.wav", BACK_MUSIC);
+
+	//ボリュームを1.0に戻す
+	float v = Audio::VolumeMaster(0);
+	v = Audio::VolumeMaster(1.0 - v);
+
+	//音楽スタート
+	Audio::Start(0);
+
 	Font::SetStrTex(L"");
 	Font::SetStrTex(L"");
 

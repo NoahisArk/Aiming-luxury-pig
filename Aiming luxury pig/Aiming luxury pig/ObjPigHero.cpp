@@ -5,6 +5,7 @@
 #include "GameL\HitBoxManager.h"
 #include "GameHead.h"
 #include "ObjPigHero.h"
+#include "GameL\Audio.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -53,6 +54,8 @@ void CObjPigHero::Action()
 	{
 		if (m_hit_down == true)
 		{
+			//ジャンプ音を鳴らす
+			Audio::Start(1);
 			m_vy = -12.5;
 		}
 	}

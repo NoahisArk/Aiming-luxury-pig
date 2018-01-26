@@ -7,6 +7,7 @@
 #include "GameL\DrawTexture.h"
 #include "GameL\DrawFont.h"
 #include "GameL\UserData.h"
+#include "GameL\Audio.h"
 //使用するネームスペース
 using namespace GameL;
 
@@ -30,6 +31,18 @@ CSceneMain::~CSceneMain()
 //初期化メソッド
 void CSceneMain::InitScene()
 {
+
+	//音楽情報の読み込み
+	Audio::LoadAudio(0, L"Scenetitle.wav", BACK_MUSIC);
+
+	Audio::LoadAudio(1, L"jamp.wav", EFFECT);
+
+	//ボリュームを1.5増やす
+	float v = Audio::VolumeMaster(1.5);
+
+	//音楽スタート
+	Audio::Start(0);
+
 	//外部データの読み込み(ステージ情報)
 	unique_ptr<wchar_t>p;//ステージ情報ポインター
 	int size;//ステージ情報の大きさ
