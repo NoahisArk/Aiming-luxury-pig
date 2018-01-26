@@ -26,6 +26,7 @@ CSceneMain::CSceneMain()
 CSceneMain::~CSceneMain()
 {
 
+
 }
 
 //‰Šú‰»ƒƒ\ƒbƒh
