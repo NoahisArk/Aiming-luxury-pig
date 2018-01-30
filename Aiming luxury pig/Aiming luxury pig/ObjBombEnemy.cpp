@@ -143,9 +143,9 @@ void CObjBombEnemy::Draw()
 
 	//•\Ž¦ˆÊ’u‚ÌÝ’è
 	dst.m_top = 0.0f + m_py;
-	dst.m_left = (30.0f*m_posture) + m_px + block->GetScroll();
-	dst.m_right = (30 - 30.0f*m_posture) + m_px + block->GetScroll();
-	dst.m_bottom = 30.0f + m_py;
+	dst.m_left = (40.0f*m_posture) + m_px + block->GetScroll();
+	dst.m_right = (40- 40.0f*m_posture) + m_px + block->GetScroll();
+	dst.m_bottom = 40.0f + m_py;
 
 	//•`‰æ
 	Draw::Draw(2, &src, &dst, c, 0.0f);

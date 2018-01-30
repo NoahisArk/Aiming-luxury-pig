@@ -71,8 +71,8 @@ void CObjTrap::Draw()
 
 	//切り取り位置の設定
 	src.m_top    = 307.0f;
-	src.m_left   = 0.0f;
-	src.m_right  = 162.0;
+	src.m_left   = 162.0f;
+	src.m_right  = -0.0f;
 	src.m_bottom = 450.0f;
 
 	//ブロック情報を持ってくる
