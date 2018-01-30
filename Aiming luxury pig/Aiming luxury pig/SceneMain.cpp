@@ -38,8 +38,8 @@ void CSceneMain::InitScene()
 
 	Audio::LoadAudio(1, L"jamp.wav", EFFECT);
 
-	//ボリュームを1.5増やす
-	float v = Audio::VolumeMaster(1.5);
+	//ボリュームを1.0増やす
+	float v = Audio::VolumeMaster(1.0);
 
 	//音楽スタート
 	Audio::Start(0);
