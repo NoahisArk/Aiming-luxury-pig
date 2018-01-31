@@ -24,7 +24,8 @@ void CObjTrap::Init()
 	m_hit_right = false;
 
 	//当たり判定用のHitBoxを作成
-	Hits::SetHitBox(this, m_px, m_py, 30, 30, ELEMENT_ENEMY, OBJ_TRAP, 1);
+	Hits::SetHitBox(this, m_px, m_py, 26
+		, 20, ELEMENT_ENEMY, OBJ_TRAP, 1);
 }
 
 //アクション
@@ -44,7 +45,7 @@ void CObjTrap::Action()
 
 	//HitBoxの位置の変更
 	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(m_px + block->GetScroll(), m_py);
+	hit->SetPos(m_px +4 + block->GetScroll(), m_py + 10);
 
 	//主人公の位置を取得
 	//CObjPigHero*hero = (CObjPigHero*)Objs::GetObj(OBJ_PIGHERO);
@@ -82,7 +83,7 @@ void CObjTrap::Draw()
 	dst.m_top    = 0.0f + m_py;
 	dst.m_left   = (     0.0f*m_posture) + m_px + block->GetScroll();
 	dst.m_right  = (30 - 0.0f*m_posture) + m_px + block->GetScroll();
-	dst.m_bottom = 30.0f + m_py;
+	dst.m_bottom = 33.5f + m_py;
 
 	//描画
 	Draw::Draw(0, &src, &dst, c, 0.0f);

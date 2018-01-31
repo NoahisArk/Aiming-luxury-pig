@@ -103,7 +103,7 @@ void CObjPigHero::Action()
 		m_ani_frame = 0;
 	}
 	//–€ŽC
-	m_vx += -(m_vx*0.115);
+	m_vx += -(m_vx*0.120);
 
 	//Ž©—R—Ž‰º‰^“®
 	m_vy += 9.8 / (16.0f);
@@ -205,7 +205,7 @@ void CObjPigHero::Draw()
 	dst.m_top = 0.0f + m_py;
 	dst.m_left = (30.0f*m_posture) + m_px;
 	dst.m_right = (30 - 30.0f*m_posture) + m_px;
-	dst.m_bottom = 30.0f + m_py;
+	dst.m_bottom = 35.0f + m_py;
 
 	//•`‰æ
 	Draw::Draw(2, &src, &dst, c, 0.0f);

@@ -114,6 +114,7 @@ void CObjBlock::Draw()
 	dst.m_bottom = 600.0;
 	Draw::Draw(1, &src, &dst, c, 0.0f);
 
+
 	//マップチップによるblock設置
 	for (int i = 0; i < 20; i++)
 	{
