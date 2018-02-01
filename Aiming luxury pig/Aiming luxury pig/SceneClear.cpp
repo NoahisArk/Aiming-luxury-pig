@@ -39,6 +39,7 @@ void CSceneClear::InitScene()
 	//音楽スタート
 	Audio::Start(0);
 
+
 	Font::SetStrTex(L"");
 	Font::SetStrTex(L"");
 

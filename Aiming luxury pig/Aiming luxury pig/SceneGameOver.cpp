@@ -38,7 +38,7 @@ void CSceneGameOver::InitScene()
 	Audio::LoadAudio(0, L"gameover.wav", BACK_MUSIC);
 
 	//ボリュームを1.0に戻す
-	float v = Audio::VolumeMaster(0);//マスターボリュームを0.8下げる
+	float v = Audio::VolumeMaster(0);//マスターボリュームを1.0下げる
 	v = Audio::VolumeMaster((1.0 - v));
 
 	//音楽スタート
@@ -49,6 +49,7 @@ void CSceneGameOver::InitScene()
 	Objs::InsertObj(obj, OBJ_GAME_OVER,12 );
 
 	Draw::LoadImageW(L"Game Over.png", 3, TEX_SIZE_512);
+
 }
 
 //実行中メソッド

@@ -101,7 +101,7 @@ void CObjPigHero::Action()
 		m_ani_frame = 0;
 	}
 	//–€ŽC
-	m_vx += -(m_vx*0.120);
+	m_vx += -(m_vx * 0.120);
 
 	//Ž©—R—Ž‰º‰^“®
 	m_vy += 9.8 / (16.0f);

@@ -22,6 +22,9 @@
     <Filter Include="ソース ファイル\Game:Title">
       <UniqueIdentifier>{2f9b772e-ae37-41b4-9d0d-475b8a709cce}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Game:Main">
+      <UniqueIdentifier>{dd12338b-b3be-41c0-9f87-d971fe2f2511}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameL\Audio.cpp">
@@ -60,15 +63,6 @@
     <ClCompile Include="GameL\WinInputs.cpp">
       <Filter>リソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="ObjBlock.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjEnemy.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjPigHero.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="SceneMain.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -84,20 +78,29 @@
     <ClCompile Include="ObjGameOver.cpp">
       <Filter>ソース ファイル\Game:Ovar</Filter>
     </ClCompile>
-    <ClCompile Include="ObjTime.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="ObjTitle.cpp">
       <Filter>ソース ファイル\Game:Title</Filter>
     </ClCompile>
     <ClCompile Include="SceneTitle.cpp">
       <Filter>ソース ファイル\Game:Title</Filter>
     </ClCompile>
-    <ClCompile Include="ObjTrap.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="ObjBlock.cpp">
+      <Filter>ソース ファイル\Game:Main</Filter>
     </ClCompile>
     <ClCompile Include="ObjBombEnemy.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Game:Main</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjEnemy.cpp">
+      <Filter>ソース ファイル\Game:Main</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjPigHero.cpp">
+      <Filter>ソース ファイル\Game:Main</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjTime.cpp">
+      <Filter>ソース ファイル\Game:Main</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjTrap.cpp">
+      <Filter>ソース ファイル\Game:Main</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -140,15 +143,6 @@
     <ClInclude Include="main.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="ObjBlock.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjEnemy.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjPigHero.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="SceneMain.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
@@ -164,20 +158,29 @@
     <ClInclude Include="ObjGameOver.h">
       <Filter>ソース ファイル\Game:Ovar</Filter>
     </ClInclude>
-    <ClInclude Include="ObjTime.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="SceneTitle.h">
       <Filter>ソース ファイル\Game:Title</Filter>
     </ClInclude>
     <ClInclude Include="ObjTitle.h">
       <Filter>ソース ファイル\Game:Title</Filter>
     </ClInclude>
-    <ClInclude Include="ObjTrap.h">
-      <Filter>ソース ファイル</Filter>
+    <ClInclude Include="ObjBlock.h">
+      <Filter>ソース ファイル\Game:Main</Filter>
     </ClInclude>
     <ClInclude Include="ObjBombEnemy.h">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Game:Main</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjEnemy.h">
+      <Filter>ソース ファイル\Game:Main</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjPigHero.h">
+      <Filter>ソース ファイル\Game:Main</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjTime.h">
+      <Filter>ソース ファイル\Game:Main</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjTrap.h">
+      <Filter>ソース ファイル\Game:Main</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

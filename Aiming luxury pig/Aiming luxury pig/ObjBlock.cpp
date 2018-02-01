@@ -170,18 +170,36 @@ void CObjBlock::Draw()
 				}
 				else if (m_map2[i][j] == 4)
 				{
-					//敵(オオカミ)：切り取り位置
-					;
+					//敵(オオカミ) : 切り取り位置
+					src.m_top	 = 320.0f;
+					src.m_left	 = 330.0f;
+					src.m_right	 = 500.0f;
+					src.m_bottom = 460.0f;
+
+					//描画
+					Draw::Draw(0, &src, &dst, c, 0.0f);
 				}
 				else if (m_map2[i][j] == 6)
 				{
-					//罠(トラップ)：切り取り位置
-					;
+					//罠 : 切り取り位置
+					src.m_top	 = 320.0f;
+					src.m_left	 = 164.0f;
+					src.m_right	 = 324.0f;
+					src.m_bottom = 450.0f;
+
+					//描画
+					Draw::Draw(0, &src, &dst, c, 0.0f);
 				}
 				else if (m_map2[i][j] == 8)
 				{
 					//敵(オオカミ(爆弾))：切り取り位置
-					;
+					src.m_top	 = 320.0f;
+					src.m_left	 = 330.0f;
+					src.m_right	 = 500.0f;
+					src.m_bottom = 460.0f;
+
+					//描画
+					Draw::Draw(0, &src, &dst, c, 0.0f);
 				}
 				else
 				{
