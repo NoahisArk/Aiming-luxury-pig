@@ -14,7 +14,6 @@ void CObjTime::Init()
 {
 	m_time = 0;
 	m_flag_time = false;
-
 }
 
 //アクション
@@ -22,6 +21,7 @@ void CObjTime::Action()
 {
 	//主人公の位置を取得
 	CObjPigHero*hero = (CObjPigHero*)Objs::GetObj(OBJ_PIGHERO);
+
 	//スタートブロックを踏んでいるならフラグをオンにする
 	if (hero->GetBT() == 2)
 	{
@@ -44,6 +44,7 @@ void CObjTime::Action()
 		m_time++;
 	}
 }
+
 //ドロー
 void CObjTime::Draw()
 {
@@ -58,6 +59,7 @@ void CObjTime::Draw()
 
 	wchar_t str[128];
 	//分：秒の値を文字列化
+
 	if (second<10)
 		swprintf_s(str, L"%d分0%d秒", minute, second);//秒の1行目に0を用意
 	else

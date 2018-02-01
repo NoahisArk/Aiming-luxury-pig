@@ -12,11 +12,10 @@ using namespace GameL;
 
 CObjBlock::CObjBlock( int map2[20][250])
 {
-	
 	//マップデータをコピー:ノーマル
 	memcpy(m_map2, map2, sizeof(int)*(20 * 250));
-	
 }
+
 //イニシャライズ
 void CObjBlock::Init()
 {
@@ -114,7 +113,6 @@ void CObjBlock::Draw()
 	dst.m_bottom = 600.0;
 	Draw::Draw(1, &src, &dst, c, 0.0f);
 
-
 	//マップチップによるblock設置
 	for (int i = 0; i < 20; i++)
 	{
@@ -195,7 +193,6 @@ void CObjBlock::Draw()
 		}
 	}
 }
-
 //BlockDrawMethod関数
 //引数1 float  x ;リソース切り取り位置X
 //引数2 float  y ;リソース切り取り位置Y
@@ -318,5 +315,3 @@ void CObjBlock::BlockHit(
 		}
 	}
 }
-
-

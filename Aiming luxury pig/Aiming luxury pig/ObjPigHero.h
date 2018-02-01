@@ -14,21 +14,21 @@ public:
 	void Action();//アクション
 	void Draw();//ドロー
 
-	float GetX() { return m_px; }
-	float GetY() { return m_py; }
+	float GetX()  { return m_px; }
+	float GetY()  { return m_py; }
 	float GetVY() { return m_vy; }
 	float GetVX() { return m_vx; }
-	int GetBT() { return m_block_type; }
+	int GetBT()   { return m_block_type; }
 
-	void SetX(float x) { m_px = x; }
-	void SetY(float y) { m_py = y; }
+	void SetX(float x)   { m_px = x; }
+	void SetY(float y)   { m_py = y; }
 	void SetVY(float vy) { m_vy = vy; }
 	void SetVX(float vx) { m_vx = vx; }
-	void SetBT(int t) { m_block_type = t; }
+	void SetBT(int t)	 { m_block_type = t; }
 
-	void SetUp(bool b) { m_hit_up = b; }
-	void SetDown(bool b) { m_hit_down = b; }
-	void SetLeft(bool b) { m_hit_left = b; }
+	void SetUp(bool b)	  { m_hit_up = b; }
+	void SetDown(bool b)  { m_hit_down = b; }
+	void SetLeft(bool b)  { m_hit_left = b; }
 	void SetRight(bool b) { m_hit_right = b; }
 private:
 	float m_px;//位置
@@ -55,5 +55,5 @@ private:
 	bool  m_del;
 
 	//テスト用
-	float px, py;//交点
+	//float px, py;//交点
 };

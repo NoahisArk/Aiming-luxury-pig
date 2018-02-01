@@ -24,7 +24,6 @@ CSceneGameOver::CSceneGameOver()
 CSceneGameOver::~CSceneGameOver()
 {
 
-
 }
 
 //初期かメソッド
@@ -50,7 +49,6 @@ void CSceneGameOver::InitScene()
 	Objs::InsertObj(obj, OBJ_GAME_OVER,12 );
 
 	Draw::LoadImageW(L"Game Over.png", 3, TEX_SIZE_512);
-
 }
 
 //実行中メソッド

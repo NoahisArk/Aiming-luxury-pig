@@ -44,8 +44,6 @@ void CSceneTitle::InitScene()
 	Objs::InsertObj(obj, OBJ_TITLE, 10);
 
 	Draw::LoadImageW(L"Title.png", 4, TEX_SIZE_512);
-
-
 }
 
 //ゲームメイン実行中メソッド

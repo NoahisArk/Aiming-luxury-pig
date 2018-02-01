@@ -18,14 +18,13 @@ CObjTrap::CObjTrap(float x, float y)
 void CObjTrap::Init()
 {
 	//blockとの衝突状態確認用
-	m_hit_up = false;
-	m_hit_down = false;
-	m_hit_left = false;
+	m_hit_up	= false;
+	m_hit_down	= false;
+	m_hit_left	= false;
 	m_hit_right = false;
 
 	//当たり判定用のHitBoxを作成
-	Hits::SetHitBox(this, m_px, m_py, 26
-		, 20, ELEMENT_ENEMY, OBJ_TRAP, 1);
+	Hits::SetHitBox(this, m_px, m_py, 26, 20, ELEMENT_ENEMY, OBJ_TRAP, 1);
 }
 
 //アクション
@@ -46,9 +45,6 @@ void CObjTrap::Action()
 	//HitBoxの位置の変更
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_px +4 + block->GetScroll(), m_py + 10);
-
-	//主人公の位置を取得
-	//CObjPigHero*hero = (CObjPigHero*)Objs::GetObj(OBJ_PIGHERO);
 
 	//敵と当たっているか確認
 	if (hit->CheckObjNameHit(OBJ_PIGHERO) != nullptr)
@@ -73,7 +69,7 @@ void CObjTrap::Draw()
 	//切り取り位置の設定
 	src.m_top    = 307.0f;
 	src.m_left   = 162.0f;
-	src.m_right  = -0.0f;
+	src.m_right  =   0.0f;
 	src.m_bottom = 450.0f;
 
 	//ブロック情報を持ってくる

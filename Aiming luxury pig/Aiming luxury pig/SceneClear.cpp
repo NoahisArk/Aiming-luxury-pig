@@ -19,16 +19,16 @@ CSceneClear::CSceneClear()
 {
 
 }
+
 //デストラクタ
 CSceneClear::~CSceneClear()
 {
 
-
 }
+
 //初期かメソッド
 void CSceneClear::InitScene()
 {
-
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"clear.wav", BACK_MUSIC);
 
@@ -42,13 +42,11 @@ void CSceneClear::InitScene()
 	Font::SetStrTex(L"");
 	Font::SetStrTex(L"");
 
-
 	Draw::LoadImageW(L"Game Clear.png", 4, TEX_SIZE_512);
 
 	//クリアオブジェクト作成
 	CObjClear* obj = new CObjClear();//クリアオブジェクト作成
 	Objs::InsertObj(obj, OBJ_CLEAR, 12);//クリアオブジェクト登録
-	
 }
 
 //実行中メソッド

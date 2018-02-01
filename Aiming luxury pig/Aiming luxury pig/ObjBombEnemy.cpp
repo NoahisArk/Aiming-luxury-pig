@@ -14,6 +14,7 @@ CObjBombEnemy::CObjBombEnemy(float x, float y)
 	m_px = x;//位置
 	m_py = y;
 }
+
 //イニシャライズ
 void CObjBombEnemy::Init()
 {
@@ -30,9 +31,9 @@ void CObjBombEnemy::Init()
 	m_move = true;  //true=右　false=左
 
 					//blockとの衝突状態確認用
-	m_hit_up = false;
-	m_hit_down = false;
-	m_hit_left = false;
+	m_hit_up	= false;
+	m_hit_down	= false;
+	m_hit_left	= false;
 	m_hit_right = false;
 
 	//当たり判定用のHitBoxを作成
@@ -132,20 +133,20 @@ void CObjBombEnemy::Draw()
 	RECT_F src;//描画元切り取り位置
 	RECT_F dst;//描画先表示位置
 
-			   //切り取り位置の設定
-	src.m_top = 300.0f;
-	src.m_left = 0.0f + AniData[m_ani_frame] * 150;
-	src.m_right = 150.0 + AniData[m_ani_frame] * 150;
+	//切り取り位置の設定
+	src.m_top	 = 300.0f;
+	src.m_left	 =   0.0f + AniData[m_ani_frame] * 150;
+	src.m_right  = 150.0f + AniData[m_ani_frame] * 150;
 	src.m_bottom = src.m_top + 150.0f;
 
 	//ブロック情報を持ってくる
 	CObjBlock*block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 
 	//表示位置の設定
-	dst.m_top = 0.0f + m_py;
-	dst.m_left = (40.0f*m_posture) + m_px + block->GetScroll();
-	dst.m_right = (40- 40.0f*m_posture) + m_px + block->GetScroll();
-	dst.m_bottom = 40.0f + m_py;
+	dst.m_top	 =   0.0f + m_py;
+	dst.m_left	 = (40.0f         * m_posture) + m_px + block->GetScroll();
+	dst.m_right	 = (40    - 40.0f * m_posture) + m_px + block->GetScroll();
+	dst.m_bottom =  40.0f + m_py;
 
 	//描画
 	Draw::Draw(2, &src, &dst, c, 0.0f);
