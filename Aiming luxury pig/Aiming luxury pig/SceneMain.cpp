@@ -38,7 +38,7 @@ void CSceneMain::InitScene()
 
 	Audio::LoadAudio(1, L"jamp.wav", EFFECT);
 
-	//ボリュームを1.0増やす
+	//ボリュームを1.0増やす+
 	float v = Audio::VolumeMaster(1.0);
 
 	//音楽スタート
@@ -84,7 +84,7 @@ void CSceneMain::InitScene()
 
 	//タイムオブジェクト作成
 	CObjTime* objt = new CObjTime();
-	Objs::InsertObj(objt, OBJ_TIME, 11);
+	Objs::InsertObj(objt, OBJ_TIME, 10);
 }
 
 //実行中メソッド

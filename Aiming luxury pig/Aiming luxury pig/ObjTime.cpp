@@ -5,7 +5,7 @@
 #include "GameL\DrawFont.h"
 #include "GameHead.h"
 #include "ObjTime.h"
-
+#include"GameL\UserData.h"
 //使用するネームスペース
 using namespace GameL;
 
@@ -19,29 +19,34 @@ void CObjTime::Init()
 //アクション
 void CObjTime::Action()
 {
-	//主人公の位置を取得
+	//主人公を取得
 	CObjPigHero*hero = (CObjPigHero*)Objs::GetObj(OBJ_PIGHERO);
 
-	//スタートブロックを踏んでいるならフラグをオンにする
-	if (hero->GetBT() == 2)
+	if (hero != NULL)
 	{
-		m_flag_time = true;
-	}
-	else if (hero->GetBT() == 3)
-	{
-		m_flag_time = false;
-		if (hero->GetBT() == 3)
+		//スタートブロックを踏んでいるならフラグをオンにする
+		if (hero->GetBT() == 2)
 		{
-			this->SetStatus(false);
-			//Hits::DeleteHitBox(this);
-
-			Scene::SetScene(new CSceneClear());
+			m_flag_time = true;
+		}
+		else if (hero->GetBT() == 3)
+		{
+			m_flag_time = false;
+			if (hero->GetBT() == 3)
+			{
+				this->SetStatus(false);
+				//Hits::DeleteHitBox(this);				
+				Scene::SetScene(new CSceneClear());
+			}
 		}
 	}
+
+	
 	//フラグがオンの時、時間を進める
 	if (m_flag_time == true)
 	{
 		m_time++;
+		((UserData*)Save::GetData())->m_time = m_time;
 	}
 }
 
