@@ -47,13 +47,13 @@ void CSceneMain::InitScene()
 	//外部データの読み込み(ステージ情報)
 	unique_ptr<wchar_t>p;//ステージ情報ポインター
 	int size;//ステージ情報の大きさ
-	p = Save::ExternalDataOpen(L"ノーマル.csv", &size);//外部データの読み込み
+	p = Save::ExternalDataOpen(L"Perfect.csv", &size);//外部データの読み込み
 	int count = 1;
 	
-	int map2[20][250];
+	int map2[20][400];
 	for (int i = 0; i < 20; i++)
 	{
-		for (int j = 0; j < 250; j++)
+		for (int j = 0; j < 400; j++)
 		{
 			int w = 0;
 			swscanf_s(&p.get()[count], L"%d", &w);

@@ -10,10 +10,10 @@
 //使用するネームスペース
 using namespace GameL;
 
-CObjBlock::CObjBlock( int map2[20][250])
+CObjBlock::CObjBlock( int map2[20][400])
 {
 	//マップデータをコピー:ノーマル
-	memcpy(m_map2, map2, sizeof(int)*(20 * 250));
+	memcpy(m_map2, map2, sizeof(int)*(20 * 400));
 }
 
 //イニシャライズ
@@ -116,7 +116,7 @@ void CObjBlock::Draw()
 	//マップチップによるblock設置
 	for (int i = 0; i < 20; i++)
 	{
-		for (int j = 0; j < 250; j++)
+		for (int j = 0; j < 400; j++)
 		{
 			if (m_map2[i][j] > 0)
 			{
@@ -260,7 +260,7 @@ void CObjBlock::BlockHit(
 	//mmapの全要素にアクセス
 	for (int i = 0; i < 20; i++)
 	{
-		for (int j = 0; j < 250; j++)
+		for (int j = 0; j < 400; j++)
 		{
 			if (m_map2[i][j] > 0 && m_map2[i][j] != 4)
 			{
