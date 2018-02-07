@@ -257,7 +257,7 @@ void CObjBlock::BlockHit(
 	//踏んでいるblockの種類の初期化
 	*bt = 0;
 
-	//mmapの全要素にアクセス
+	//mapの全要素にアクセス
 	for (int i = 0; i < 20; i++)
 	{
 		for (int j = 0; j < 400; j++)

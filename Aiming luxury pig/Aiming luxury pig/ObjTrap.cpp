@@ -76,10 +76,10 @@ void CObjTrap::Draw()
 	CObjBlock*block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 
 	//•\Ž¦ˆÊ’u‚ÌÝ’è
-	dst.m_top    = 0.0f + m_py;
+	dst.m_top    =   0.0f + m_py;
 	dst.m_left   = (     0.0f*m_posture) + m_px + block->GetScroll();
 	dst.m_right  = (30 - 0.0f*m_posture) + m_px + block->GetScroll();
-	dst.m_bottom = 33.5f + m_py;
+	dst.m_bottom =  33.5f + m_py;
 
 	//•`‰æ
 	Draw::Draw(0, &src, &dst, c, 0.0f);

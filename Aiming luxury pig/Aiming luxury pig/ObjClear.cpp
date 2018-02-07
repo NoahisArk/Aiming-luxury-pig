@@ -58,12 +58,8 @@ void CObjClear::Draw()
 	dst.m_bottom = 1200.0f;
 
 	float d[4] = { 1.0f,1.0f,1.0f,1.0f };
-	//Font::StrDraw(L"ƒNƒŠƒA",200,215,200,d);
 	int m_time = 0;
 	m_time=((UserData*)Save::GetData())->m_time;
-
-	
-	
 
 	//m_time‚©‚ç•b•ª‚ğ‹‚ß‚é
 	int minute = 0;//•ª

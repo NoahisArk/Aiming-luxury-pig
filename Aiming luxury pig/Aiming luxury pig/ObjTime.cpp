@@ -40,7 +40,6 @@ void CObjTime::Action()
 			}
 		}
 	}
-
 	
 	//フラグがオンの時、時間を進める
 	if (m_flag_time == true)
@@ -60,7 +59,7 @@ void CObjTime::Draw()
 	second = (m_time / 60) % 60;//秒
 	minute = (m_time / 60) / 60;//分
 
-	float c[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
+	float c[4] = { 0.0f, 0.0f, 0.0f, 1.0f };
 
 	wchar_t str[128];
 	//分：秒の値を文字列化
